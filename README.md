@@ -3,9 +3,14 @@
 
 Get started:
 ```
-npm install
+npm install && bower install
+
 gulp
+
+http://localhost:3000
+
 ```
+
 
 Package for deployment:
 ```

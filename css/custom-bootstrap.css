@@ -1377,11 +1377,11 @@ a.bg-success:focus {
   background-color: #027454;
 }
 .bg-info {
-  background-color: #323D43;
+  background-color: indigo;
 }
 a.bg-info:hover,
 a.bg-info:focus {
-  background-color: #1c2226;
+  background-color: #2e004f;
 }
 .bg-warning {
   background-color: #E87E04;
@@ -2378,14 +2378,14 @@ table th[class*="col-"] {
 .table > thead > tr.info > th,
 .table > tbody > tr.info > th,
 .table > tfoot > tr.info > th {
-  background-color: #323D43;
+  background-color: indigo;
 }
 .table-hover > tbody > tr > td.info:hover,
 .table-hover > tbody > tr > th.info:hover,
 .table-hover > tbody > tr.info:hover > td,
 .table-hover > tbody > tr:hover > .info,
 .table-hover > tbody > tr.info:hover > th {
-  background-color: #273034;
+  background-color: #3c0069;
 }
 .table > thead > tr > td.warning,
 .table > tbody > tr > td.warning,
@@ -3220,26 +3220,26 @@ fieldset[disabled] .btn-success.focus {
 }
 .btn-info {
   color: #fff;
-  background-color: #323D43;
-  border-color: #323D43;
+  background-color: indigo;
+  border-color: indigo;
 }
 .btn-info:focus,
 .btn-info.focus {
   color: #fff;
-  background-color: #1c2226;
-  border-color: #000000;
+  background-color: #2e004f;
+  border-color: #010002;
 }
 .btn-info:hover {
   color: #fff;
-  background-color: #1c2226;
-  border-color: #181d20;
+  background-color: #2e004f;
+  border-color: #280045;
 }
 .btn-info:active,
 .btn-info.active,
 .open > .dropdown-toggle.btn-info {
   color: #fff;
-  background-color: #1c2226;
-  border-color: #181d20;
+  background-color: #2e004f;
+  border-color: #280045;
 }
 .btn-info:active:hover,
 .btn-info.active:hover,
@@ -3251,8 +3251,8 @@ fieldset[disabled] .btn-success.focus {
 .btn-info.active.focus,
 .open > .dropdown-toggle.btn-info.focus {
   color: #fff;
-  background-color: #0d1011;
-  border-color: #000000;
+  background-color: #19002b;
+  border-color: #010002;
 }
 .btn-info:active,
 .btn-info.active,
@@ -3268,11 +3268,11 @@ fieldset[disabled] .btn-info:focus,
 .btn-info.disabled.focus,
 .btn-info[disabled].focus,
 fieldset[disabled] .btn-info.focus {
-  background-color: #323D43;
-  border-color: #323D43;
+  background-color: indigo;
+  border-color: indigo;
 }
 .btn-info .badge {
-  color: #323D43;
+  color: indigo;
   background-color: #fff;
 }
 .btn-warning {
@@ -4875,11 +4875,11 @@ a.label:focus {
   background-color: #027454;
 }
 .label-info {
-  background-color: #323D43;
+  background-color: indigo;
 }
 .label-info[href]:hover,
 .label-info[href]:focus {
-  background-color: #1c2226;
+  background-color: #2e004f;
 }
 .label-warning {
   background-color: #E87E04;
@@ -5053,11 +5053,11 @@ a.thumbnail.active {
 }
 .alert-info {
   background-color: #FFF;
-  border-color: #323D43;
+  border-color: indigo;
   color: #666;
 }
 .alert-info hr {
-  border-top-color: #273034;
+  border-top-color: #3c0069;
 }
 .alert-info .alert-link {
   color: #4d4d4d;
@@ -5140,7 +5140,7 @@ a.thumbnail.active {
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 .progress-bar-info {
-  background-color: #323D43;
+  background-color: indigo;
 }
 .progress-striped .progress-bar-info {
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -5318,7 +5318,7 @@ button.list-group-item-success.active:focus {
 }
 .list-group-item-info {
   color: #666;
-  background-color: #323D43;
+  background-color: indigo;
 }
 a.list-group-item-info,
 button.list-group-item-info {
@@ -5333,7 +5333,7 @@ button.list-group-item-info:hover,
 a.list-group-item-info:focus,
 button.list-group-item-info:focus {
   color: #666;
-  background-color: #273034;
+  background-color: #3c0069;
 }
 a.list-group-item-info.active,
 button.list-group-item-info.active,
@@ -5701,22 +5701,22 @@ button.list-group-item-danger.active:focus {
   border-bottom-color: #03A678;
 }
 .panel-info {
-  border-color: #323D43;
+  border-color: indigo;
 }
 .panel-info > .panel-heading {
   color: #666;
-  background-color: #323D43;
-  border-color: #323D43;
+  background-color: indigo;
+  border-color: indigo;
 }
 .panel-info > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #323D43;
+  border-top-color: indigo;
 }
 .panel-info > .panel-heading .badge {
-  color: #323D43;
+  color: indigo;
   background-color: #666;
 }
 .panel-info > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #323D43;
+  border-bottom-color: indigo;
 }
 .panel-warning {
   border-color: #E87E04;

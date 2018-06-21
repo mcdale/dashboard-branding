@@ -129,7 +129,7 @@ body {
   /* ===================================================================================== */
 }
 .support-container > header .navbar {
-  background: #323D43;
+  background: indigo;
   border: none;
 }
 .support-container > header .navbar .navbar-header .navbar-brand {
@@ -666,19 +666,19 @@ body:not(.accessibilityMode) .support-container > .support-section .support-left
   }
 }
 .support-container .styling-colourBox-main {
-  background-color: #323D43;
+  background-color: indigo;
   color: #FFF;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 .support-container .styling-colourBox-mainLight {
-  background-color: #425159;
+  background-color: #6100a8;
   color: #000;
   text-shadow: 0 1px 2px #FFF;
   color: #FFF;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 .support-container .styling-colourBox-mainDark {
-  background-color: #22292d;
+  background-color: #35005c;
   color: #FFF;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
@@ -742,7 +742,7 @@ body:not(.accessibilityMode) .support-container > .support-section .support-left
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 .support-container .styling-colourBox-info {
-  background-color: #323D43;
+  background-color: indigo;
   color: #FFF;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
