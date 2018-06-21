@@ -1,0 +1,108 @@
+/* GENERIC VARIABLES =================================================================== */
+/* BASE UI ----------------------------------- */
+/* Typography */
+@font-family:            ~"'Lato', 'Open Sans', 'Segoe UI', 'Gill Sans', sans-serif";
+
+@font-sizeEm-base:        1em;
+@font-sizeEm-lg:          1.2em;
+@font-sizeEm-sm:          0.85em;
+@font-sizeEm-xs:          0.75em;
+
+/* Transitions */
+@baseTransitionProperty:  all;
+@baseTransitionSpeed:     0.25s;
+@baseTransitionEasing:    ease;
+@baseTransition:          ~"@{baseTransitionProperty} @{baseTransitionSpeed} @{baseTransitionEasing}";
+
+@navSlideTransition:      all 0.5s ease;
+
+/* CSS LOADING DOTS */
+@CSSLoadingColour:#999;
+
+/* Branding Flags */
+@brandingType:'Custom';
+/* ------------------------------------------- */
+
+/* RESPONSIVE BREAKPOINTS -------------------- */
+@deviceMobile:            ~"(max-width: @{screen-xs-max})";
+@deviceMobileTablet:      ~"(max-width: @{screen-sm-max})";
+@deviceMobTabDeskMd:      ~"(max-width: @{screen-md-max})";
+@deviceTablet:            ~"(min-width: @{screen-sm-min}) and (max-width: @{screen-sm-max})";
+@deviceTabletDesktop:     ~"(min-width: @{screen-sm-min})";
+@deviceTabletDesktopMd:     ~"(min-width: @{screen-sm-min}) and (max-width: @{screen-md-max})";
+@deviceDesktop:           ~"(min-width: @{screen-md-min})";
+@deviceDesktopMd:         ~"(min-width: @{screen-md-min}) and (max-width: @{screen-md-max})";
+@deviceDesktopLg:         ~"(min-width: @{screen-lg-min})";
+
+@themeBPoint_desktopXLg:  (@themeBPoint_desktopLg + 100px);
+@deviceDesktopXLg:        ~"(min-width:@{themeBPoint_desktopXLg})";
+
+/* WebKit Browsers (Chrome, Safari and Opera) */
+@deviceWebkitBrowsers:    ~"screen and (-webkit-min-device-pixel-ratio: 0)";
+@deviceWebkitBrowsersXLg: ~"@{deviceWebkitBrowsers} and @{deviceDesktopXLg}";
+
+/* Firefox v3.6 and above */
+@deviceFirefoxBrowsers:   ~"screen and (-moz-images-in-menus:0)";
+
+/* Responsive Body Height - Used in conjunction with 100vh eg. calc(100vh - @{smMinHeight}) */
+@smMinHeight: (@headerHeight * 2) + @footerHeight;
+@mdMinHeight: @headerHeight + @footerHeight;
+
+@deviceIE:  ~"screen and (min-width:0\0)";
+/* ------------------------------------------- */
+
+/* HEADER / FOOTER / LEFT NAV- --------------- */
+@headerHeight:            60px;
+@footerHeight:            40px;
+@leftNavWidth:            300px;
+/* ------------------------------------------- */
+
+/* SMALL BUTTONS ----------------------------- */
+@roundSize-base:          2.715em;
+@roundSize-large:         2.62em;
+@roundSize-small:         2.1em;
+@roundSize-xs:            1.905em;
+/* ------------------------------------------- */
+
+/* STATE ICONS -------------------------------- */
+@stateIcon_info:          '\f05a';
+@stateIcon_success:       '\f058';
+@stateIcon_warning:       '\f071';
+@stateIcon_danger:        '\f057';
+/* ------------------------------------------- */
+
+/* FORM CONTROL ------------------------------ */
+/* Dropdown Chevrons */
+@selectChevronDark_up:      ~"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAVCAYAAAAaX42MAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8wOC8xNX6yCt8AAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAABEElEQVRYhdXYsQ2DMBCF4YfTMwBps4EXoAs9O3goxqCiZAFvQEvLCk4RX6Q4GBuMxeWXkMAITp8oEBTGGKTUdd0DwGAPG6XUlHTDzBUpYIsdAdzt0gyg5owWRy9cwcLuj/Ycyw6BPViKNXo3OICl2KJ3gSOxFEt0NDiAne3mxg4dBY7A1nZjjw6CY7BKqcm+imowR2+CY7G08A9oL3gvluKOXgUfxVKc0T/gVCzFFf0FPgtLcUR/wGdjKW5oAeTDUpzQt6qqsmIpKeWite4BtABK53QJoNVa91LKJXXWVgLvj/esWCriSQ8r66fmew9n+5APoIuz57kJAI0zPPtfCw96BvDMNZMqjDGX/Ze6Yu4LPqHJhGVPht4AAAAASUVORK5CYII=";
+@selectChevronDark_down:    ~"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAVCAYAAAAaX42MAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8wOC8xNX6yCt8AAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAABEUlEQVRYhc3YsQ2DMBCF4R9ng5SkSMMGLEBJnx0YijFSJR0LsEFa2qzgFBgJWRjbBMO9CtlI58+Sz4hMa03btgXwYkzdNM2HA3JG3Uue5wXQAXfgCjz6vn+WZflNWdhgD6+rGHf4Nhu7AZ1ZUJLMsHbdd6qaU5RjPBnagZ2i965nRwE1MCzM7Y72YAezlqRRplFUJEYHYKsjmpYCSI2WgoXZGU6FloQFq2ntjZaGhYUuvRdaIhYc19K/aKlYcN/Dm9GSsbAChni0dCxAprX/4yYEYp5X3zkbC4FgCEKzMicCCxFg8KKXIgoLnjNsx3Om7YjDQiQYgtEisbABDF60WCxsBIMTLRoLkU1rKWf9D9uaH+4Y0KrzGAD5AAAAAElFTkSuQmCC";
+@selectChevronLight_up:     ~"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAVBAMAAADocZC/AAAAA3NCSVQICAjb4U/gAAAAD1BMVEX///////////////////+Rd1MVAAAABXRSTlMAIt3u/6D+9ogAAAAJcEhZcwAACusAAArrAYKLDVoAAAAWdEVYdENyZWF0aW9uIFRpbWUAMTAvMDgvMTV+sgrfAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAAGtJREFUKJF9zMsNwDAIA1DYALFBqizQFVL2n6n5KaIVmJtlP4j2aSFwXB8BtZrdCJsB3jHgAwPecaspH7hoygcWzvjEcxTyidcq4BtnfOOEHxzzg0PucMQdjrjHa/yrm3vX+bdWKyASXwLiCy/bHQb/Tw6pAAAAAElFTkSuQmCC";
+@selectChevronLight_down:   ~"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAVAgMAAABnMWUfAAAAA3NCSVQICAjb4U/gAAAADFBMVEX////////////////1pQ5zAAAABHRSTlMAIt3/kc6gywAAAAlwSFlzAAAK6wAACusBgosNWgAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8wOC8xNX6yCt8AAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAAdklEQVQYlVWMsQGAIAwEQ8MQsoyOY8UqVk7gHLoMnRPYEHkCJKRJHv6OlpUw7iKZeNTlv5afVFfIPctH7DlmCNzT+4Eh8JxalkteaTSFGgLFpaq4CBQXgcEh2AwOwWlwCF6DQ8AWLwK2OARpyn7Ci+CecKJdzx/9wzmaz7p/KgAAAABJRU5ErkJggg==";
+
+/* Sizes */
+@formControl_fontSm:        @font-size-base * unit(@font-sizeEm-sm);
+@formControl_fontSm-lg:     (@font-size-base + 2) * unit(@font-sizeEm-sm);
+@formControl_fontMd:        @font-size-base;
+@formControl_fontMd-lg:     @font-size-base + 2;
+@formControl_fontLg:        @font-size-base * unit(@font-sizeEm-lg);
+@formControl_fontLg-lg:     (@font-size-base + 2) * unit(@font-sizeEm-lg);
+
+/* TODO: Review that rounding of form control sizes worked correctly in iOS, Android, IE and Firefox  */
+@formControl_heightSm:      round((@formControl_fontSm * @line-height-small) + (@padding-small-vertical * 2) + 2, 1);
+@formControl_heightSm-lg:   round((@formControl_fontSm-lg * @line-height-small) + (@padding-small-vertical * 2) + 2, 1);
+@formControl_heightMd:      round((@formControl_fontMd * @line-height-base) + (@padding-base-vertical * 2) + 2, 1);
+@formControl_heightMd-lg:   round((@formControl_fontMd-lg * @line-height-base) + (@padding-base-vertical * 2) + 2, 1);
+@formControl_heightLg:      round((@formControl_fontLg * @line-height-large) + (@padding-large-vertical * 2) + 2, 1);
+@formControl_heightLg-lg:   round((@formControl_fontLg-lg * @line-height-large) + (@padding-large-vertical * 2) + 2, 1);
+/* ------------------------------------------- */
+
+/* WEBKIT SCROLL BAR ------------------------- */
+@webkitScroll_darkUp:      '../images/webkitScrollBtn_darkUp.png';
+@webkitScroll_darkDown:    '../images/webkitScrollBtn_darkDown.png';
+@webkitScroll_darkLeft:    '../images/webkitScrollBtn_darkLeft.png';
+@webkitScroll_darkRight:   '../images/webkitScrollBtn_darkRight.png';
+@webkitScroll_lightUp:     '../images/webkitScrollBtn_lightUp.png';
+@webkitScroll_lightDown:   '../images/webkitScrollBtn_lightDown.png';
+@webkitScroll_lightLeft:   '../images/webkitScrollBtn_lightLeft.png';
+@webkitScroll_lightRight:  '../images/webkitScrollBtn_lightRight.png';
+/* ------------------------------------------- */
+/* ===================================================================================== */

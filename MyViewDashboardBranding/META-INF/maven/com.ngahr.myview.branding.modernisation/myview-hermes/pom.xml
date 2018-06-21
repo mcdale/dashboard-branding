@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>com.ngahr.myview.branding.modernisation</groupId>
+        <artifactId>myview-branding</artifactId>
+        <version>0.1</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ngahr.myview.branding.modernisation</groupId>
+    <artifactId>myview-hermes</artifactId>
+    <version>1.0</version>
+
+    <!-- technically this should be a war but there is an open bug that war's do not
+         copy empty directories. We need those to give the directory structure needed
+         to override images etc -->
+    <packaging>jar</packaging>
+
+    <name>myview-hermes</name>
+
+    <build>
+        <finalName>myview-dashboard-branding</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/webapp</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <includeEmptyDirs>true</includeEmptyDirs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <!-- renamed the jar to a war file as this is forced by the package type above -->
+                <artifactId>maven-antrun-plugin</artifactId>
+                <configuration>
+                    <tasks>
+                        <echo message="Copying '${project.build.directory}/myview-dashboard-branding.jar'" />
+                        <copy file="${project.build.directory}/myview-dashboard-branding.jar"
+                                tofile="${project.build.directory}/myview-dashboard-branding.war"/>
+                    </tasks>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

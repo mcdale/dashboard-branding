@@ -1,0 +1,187 @@
+/* TA TIMESHEET - DAILY TIMESHEET ====================================================== */
+nga {
+	&-employee-panel,
+	&-current-date,
+	&-table-header
+	{ display:block; }
+}
+
+clock-table-row-edit,
+clock-table-row-add,
+nga-analysis-table-row { display:block; }
+
+/* ------------------------------------------- */
+.taTimesheet-dailyPanel {
+	@media @deviceMobile {
+		margin-left:-@grid-gutter-width/2; margin-right:-@grid-gutter-width/2;
+	}
+
+	.responsiveTableCollapse {
+		margin:0 -10px -10px;
+
+		/* Adjust Row Size */
+		.item-row {
+			> .item-cells { padding:@padding-small-vertical; padding-bottom:@padding-small-vertical - 1; }
+			> .item-btnLinks { padding:5px; }
+		}
+
+		/* Table Header */
+		.table-header > .item-row {
+			> .item-cells { padding-top:0; }
+			> .item-btnLinks { padding:0 5px; }
+			.row>[class*="col-"] { padding:0 @padding-small-vertical * 2; }
+		}
+
+		/* Form Controls Padding */
+		.input-sm, .input-group-sm > .form-control { padding:@padding-small-vertical; font-size:inherit; }
+		select.input-sm, .input-group-sm > select.form-control {
+			@media @deviceWebkitBrowsers { padding-right:2.1em; }     // WEBKIT BROWSERS ONLY
+    		@media @deviceFirefoxBrowsers { padding-right:2.1em; }    // FIREFOX BROWSERS ONLY
+		}
+		.input-group-sm.has-feedback  .form-control { padding-right:@formControl_heightSm; }
+
+		.form-control {
+			& + .form-control-feedback { .transition(@baseTransition); }
+
+			&[disabled]/*, &[readonly]*/ {
+				border-color:transparent; background-color:transparent;
+				color:@themeBS_inputTextColour; font-style:normal;
+				-moz-appearance:none;
+
+				&::-ms-expand { display:none; }
+				& + .form-control-feedback { .opacity(0); }
+			}
+		}
+
+		@media @deviceWebkitBrowsers {
+			input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"] {
+				&.form-control { padding:@padding-small-vertical - 1; }
+			}
+		}
+
+		/* TA Form Controls */
+		.taField {
+			position:relative;
+			.analysisIcon { .animation(fadeAndSlideFromLeft 0.5s 0.25s ease both); }
+
+			> .input-group, > .form-control {
+				position:absolute; top:0; left:0; .opacity(1);
+
+				&[disabled], &.disabled {
+					.opacity(0);
+					& + .form-control-static { max-height:@formControl_heightSm * 3; }
+				}
+			}
+
+			> .form-control-static {
+				border:1px solid transparent; max-height:@formControl_heightSm; overflow:hidden;
+				.transition(@baseTransition);
+
+				.label {
+					display:inline-block; vertical-align:text-bottom; text-transform:uppercase;
+					.animation(fadeAndSlideFromLeft 0.5s 0.5s ease both);
+
+					& + .label { .animation-delay(0.75s); }
+					& + .label + .label { .animation-delay(1s); }
+				}
+
+				@media @deviceTabletDesktop {
+					.label { font-size:85%; }
+					.analysisIcon {
+						position:absolute; top:@padding-small-vertical + 1; left:~"calc(-1.28571429em + (@{padding-small-vertical}/2 + 1px))";
+					}
+				}
+			}
+		}
+
+		/* IN/OUT Button Group */
+		.btn-group-sm .btn {
+			font-size:inherit;
+
+			&[disabled], &.disabled {
+				.opacity(1);
+				.text-muted { color:inherit; }
+
+				&:not(.active) {
+					.opacity(0.4); /*background-color:fade(#DDD,50%);*/
+					&:hover { color:inherit; }
+				}
+			}
+		}
+	}
+
+	/* Add Row */
+	.item-row.taAdd {
+		width:100%; height:100%; position:absolute; top:0; left:0; z-index:1;
+		.btn { font-size:inherit; }
+		& + .item-row { opacity:0; pointer-events:none; .scale(0.95); .transition(@baseTransition); }
+
+		&.active {
+			pointer-events:none;
+			.btn { .opacity(0); .scale(1.3); pointer-events:inherit; }
+			& + .item-row { pointer-events:auto; .opacity(1); .scale(1); }
+		}
+
+		@media @deviceMobile {
+			& + .item-row { max-height:@formControl_heightSm + @padding-small-vertical; }
+
+			&.active {
+				& + .item-row { max-height:300px; }
+			}
+		}
+	}
+}
+/* ------------------------------------------- */
+
+/* OLD --------------------------------------- */
+/*.daily-timesheet #daily-timesheet {
+	hr {
+		margin-top: 0;
+		margin-bottom: 15px;
+	}
+}
+
+.daily-timesheet #daily-timesheet {
+	.well {
+		padding: 0 0 0 5px;
+		margin-bottom: 15px;
+	}
+}*/
+
+/*.daily-timesheet {
+	&-flag {
+		background-color: white;
+		border: 1px solid #999;
+		padding: .3em .4em
+	}
+
+	&-view-only-flag {
+		color: #999;
+	}
+
+	&-unit {
+		font-size: 1.2em
+	}
+}*/
+
+/*.main-content {
+	.formStatus.formStatus-pill {
+		font-size: 1em;
+		padding: .1em .7em .1em .3em;
+
+		.fa {
+			margin: .25em .25em .135em .18em;
+			font-size: 1em;
+		}
+	}
+}*/
+
+/*abbr[title] {
+	text-decoration: none;
+	border-bottom: 1px solid #999;
+	&.remove-border {
+		border-bottom: none;
+	}
+}*/
+/* ------------------------------------------- */
+/* ===================================================================================== */

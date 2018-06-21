@@ -1,0 +1,137 @@
+/* NGA MIXINS ========================================================================== */
+/* Narrow Rows */
+.narrowMargin(@narrowMargin:10px;) {
+  margin-left:-@narrowMargin; margin-right:-@narrowMargin;
+  > [class*="col-"] { padding-left:@narrowMargin; padding-right:@narrowMargin; }
+}
+
+/* Base Font Size */
+.siteFontSize(@setfontSize : @themeText_fontSize) {
+  font-size:@setfontSize;
+  @media @deviceTablet { font-size:@setfontSize; }
+  @media @deviceDesktopXLg { font-size:@setfontSize + 2; }
+}
+
+/* Word Wrap */
+.wordWrap(@wordWrap: break-word) {
+	-ms-word-wrap: @wordWrap;
+	word-wrap: @wordWrap;
+}
+
+/* Font Awesome */
+.fontAwesome(@content:'', @lineHeight:14px, @fontSize:inherit, @display:inline-block) {
+  font:normal normal normal 14px/1 FontAwesome; font-size:@fontSize;
+  line-height:@lineHeight; display:@display; content:@content;
+  text-rendering:auto; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; transform:translate(0, 0);
+}
+
+/* Transform */
+.transform(...) {
+  -webkit-transform: @arguments;
+  -moz-transform: @arguments;
+  -o-transform: @arguments;
+  -ms-transform: @arguments;
+  transform: @arguments;
+}
+
+/* Contrast Link Colour */
+.getContrastLinkColor(@color) {
+  .mixin (@color) when (luma(@color) >= 50%) { color:#000; }
+  .mixin (@color) when (luma(@color) < 50%) { color:#FFF; }
+  .mixin(@color);
+}
+
+/* Border Radius */
+.border-radius(@size) { -webkit-border-radius:@size; -moz-border-radius:@size; border-radius:@size; }
+
+/* Material Box Shadow */
+.materialShadow(@level: 1){
+  & when (@level = 1) {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+  & when (@level = 2) {
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+  & when (@level = 3) {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+  & when (@level = 4) {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  & when (@level = 5) {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+}
+
+/* Custom Scrollbar WEBKIT ONLY */
+.customWebkitScrollbar(@scrollSize:8px, @color:#000){
+  overflow-y:auto; -webkit-overflow-scrolling:touch; -webkit-user-drag:auto; touch-action:auto;
+  
+  body:not(.accessibilityMode) &::-webkit-scrollbar {
+    .webkitButtonColour (@color) when (luma(@color) >= 50%) {
+      &-button:horizontal:decrement       { background-image:url(@webkitScroll_lightLeft) }
+      &-button:horizontal:increment       { background-image:url(@webkitScroll_lightRight) }
+      &-button:horizontal:decrement:hover { background-image:url(@webkitScroll_darkLeft) }
+      &-button:horizontal:increment:hover { background-image:url(@webkitScroll_darkRight) }
+  
+      &-button:vertical:decrement         { background-image:url(@webkitScroll_lightUp) }
+      &-button:vertical:increment         { background-image:url(@webkitScroll_lightDown) }
+      &-button:vertical:decrement:hover   { background-image:url(@webkitScroll_darkUp) }
+      &-button:vertical:increment:hover   { background-image:url(@webkitScroll_darkDown) }
+    }
+    .webkitButtonColour (@color) when (luma(@color) < 50%) {
+      &-button:horizontal:decrement       { background-image:url(@webkitScroll_darkLeft) }
+      &-button:horizontal:increment       { background-image:url(@webkitScroll_darkRight) }
+      &-button:horizontal:decrement:hover { background-image:url(@webkitScroll_lightLeft) }
+      &-button:horizontal:increment:hover { background-image:url(@webkitScroll_lightRight) }
+  
+      &-button:vertical:decrement         { background-image:url(@webkitScroll_darkUp) }
+      &-button:vertical:increment         { background-image:url(@webkitScroll_darkDown) }
+      &-button:vertical:decrement:hover   { background-image:url(@webkitScroll_lightUp) }
+      &-button:vertical:increment:hover   { background-image:url(@webkitScroll_lightDown) }
+    }
+    
+    & { width:@scrollSize; height:@scrollSize }
+    &-button {
+      width:@scrollSize*1.5; height:@scrollSize*2; background-color:fade(@color,10%);
+      background-position:center; background-repeat:no-repeat; background-size:contain;
+    }
+    &-button:hover { background-color:fade(@color,35%); }
+    &-button:active { background-color:fade(@color,40%); }
+    &-button:horizontal:decrement { border-radius:@scrollSize/2 0 0 @scrollSize/2; }
+    &-button:horizontal:increment { border-radius:0 @scrollSize/2 @scrollSize/2 0; }
+    &-button:vertical:decrement { border-radius:@scrollSize/2 @scrollSize/2 0 0; }
+    &-button:vertical:increment { border-radius:0 0 @scrollSize/2 @scrollSize/2; }
+    .webkitButtonColour(@color);
+    &-thumb { background:fade(@color,30%); border:0 none #FFF; border-radius:@scrollSize/2; }
+    &-thumb:hover { background:fade(@color,35%); }
+    &-thumb:active { background:fade(@color,40%); }
+    &-track { background:fade(@color,10%); border:0 none #FFF; border-radius:0; }
+    &-track:hover { background:fade(@color,15%); }
+    &-corner { background:transparent; }
+  }
+}
+
+/* Radio Checkbox Mixins */
+.radioCheckboxBase(@color:@themeBS_radioCheckboxChecked, @border:@themeBS_radioCheckbox) {
+  &:before { /*background:@themeColour_BGContent;*/ border:2px solid @border; .border-radius(2px); }
+  &:after { color:@color; }
+}
+
+.radioCheckboxHover(@color:@themeBS_radioCheckboxHover) {
+  color:@color;
+
+  &:before { border-color:@color; }
+  &:after { color:@color; }
+}
+
+.radioCheckboxChecked(@color:@themeBS_radioCheckboxChecked) {
+  &:before { border-color:@color; }
+}
+
+.radioCheckboxDisabled() {
+  cursor:not-allowed; .user-select(none);
+  &:before { background:@input-bg-disabled !important; border-color:darken(@input-bg-disabled,7.5%) !important; }
+  &:after { color:darken(@input-bg-disabled,25%) !important; }
+}
+/* ===================================================================================== */

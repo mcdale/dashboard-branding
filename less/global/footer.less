@@ -1,0 +1,77 @@
+/* FOOTER ============================================================================== */
+/* ------------------------------------------- */
+footer.navbar {
+  width:100%; min-height:@footerHeight; margin-bottom:0; border:0; color:@themeFooter_textColour;
+  background-color:@themeFooter_bg; 
+  
+  & when not (@themeFooter_bgImageURL = "") {
+    background-image:url(@themeFooter_bgImageURL);
+    & when not (@themeFooter_bgPos = ~"") { background-position:@themeFooter_bgPos; }
+    & when not (@themeFooter_bgRpt = ~"") { background-repeat:@themeFooter_bgRpt; }
+    & when not (@themeFooter_bgSize = ~"") { background-size:@themeFooter_bgSize; }
+  }
+  
+  > .container-fluid { padding:0; }
+
+  .navbar-nav {
+      margin:0; float:left;
+
+      > li {
+        float:left; border-right:1px solid @themeFooter_separator;
+
+        > a {
+          padding:10px 15px; line-height:@footerHeight - 20px; color:@themeFooter_linkColour;
+          &:hover, &:focus { background-color:@themeFooter_linkHover; }
+          &:active { background-color:@themeFooter_linkActive; }
+
+          > .fa-angle-down { .transition(inherit); }
+        }
+
+        > span {
+          padding:10px 15px; line-height:@footerHeight - 20px; display:block; color:@themeFooter_textColour;
+        }
+      }
+
+      > li.open {
+        > a {
+          &, &:hover, &:focus { background-color:@themeFooter_linkActive; }
+          > .fa-angle-up { .rotateX(180deg); }
+        }
+
+        > .dropdown-menu { .transform-origin(~"50% 0%"); .animation(~"pageTopBack 0.2s ease both"); }
+      }
+    }
+
+  .navbar-text {
+    height:@footerHeight; line-height:1.05; margin:0; padding:0 15px; display:table;
+    float:right; font-size:0.85em; text-align:right;
+    > div { display:table-cell; vertical-align:middle; }
+  }
+
+  @media @deviceMobile {
+    position:static;
+
+    .navbar-nav {
+      > li {
+        > a { padding:10px;
+          &:hover, &:focus, &:active { background:none; }
+        }
+
+        > .dropdown-menu {
+          position:absolute; background:#FFF; border:1px solid @dropdown-border; .box-shadow(0 6px 12px rgba(0,0,0,.175));
+
+          > li > a { padding:2px 10px; }
+        }
+      }
+
+      & + .navbar-text { max-width:65%; }
+    }
+
+    .navbar-text {
+      font-size:0.7em;
+      body.header-affix  & { padding-right:40px; }
+    }
+  }
+}
+/* ------------------------------------------- */
+/* ===================================================================================== */

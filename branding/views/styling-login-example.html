@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" id="viewport">
+        <meta name=apple-mobile-web-app-capable content="yes"/>
+        <meta name=apple-mobile-web-app-status-bar-style content="black"/>
+
+        <title>Styling Login Example - Branding Pack</title>
+
+        <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="57x57" href="../../icons/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="../../icons/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="../../icons/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="../../icons/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="../../icons/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="../../icons/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="../../icons/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="../../icons/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../icons/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="../../icons/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="../../icons/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="../../icons/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="../../icons/android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="../../icons/favicon-194x194.png" sizes="194x194">
+        <link rel="shortcut icon" href="../../icons/favicon.ico">
+
+        <!-- build:css(src/main/app) ../../css/vendor.css -->
+        <!-- bower:css --
+        <!-- Font awesome -->
+        <link href="../../bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../bower_components/angular-motion/dist/angular-motion.min.css" rel="stylesheet">
+        <link href="../../bower_components/PACE/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+        <link href="../../bower_components/isteven-angular-multiselect/isteven-multi-select.css" rel="stylesheet">
+        <link href="../../bower_components/angular-ui-grid/ui-grid.min.css" rel="stylesheet">
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <link href="../../css/style-loading.css" rel="stylesheet">
+        <link href="../../css/custom-bootstrap.css" rel="stylesheet">
+        <link href="../../css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="wrapper" class="login">
+            <div id="main-container" class="main-container">
+                <div>
+                    <header class="navbar navbar-fixed-top">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <a class="navbar-brand">
+                                    <span>NGA Human Resources</span>
+                                    <em class="fa fa-home"></em>
+                                </a>
+                            </div>
+
+                            <nav class="navbar-content">
+                                <ul class="navbar-cta">
+                                    <li><a class="btn btn-circle">?</a></li>
+                                </ul>
+
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown searchDropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <span class="btn btn-circle"><span class="fa fa-search"></span></span>
+                                        </a>
+
+                                        <div class="dropdown-menu">
+                                            <form class="navbar-form" role="search">
+                                                <input type="text" class="form-control" placeholder="Search...">
+                                                <button class="btn btn-default" type="button">
+                                                    <span class="fa fa-search"></span>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </header>
+                </div>
+
+                <div class="main-panel" id="page-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-sm-push-3 col-md-4 col-md-push-8 login-form">
+                                <span class="visible-xs visible-sm">MyView Dashboard</span>
+
+                                <div>
+                                    <h2 class="login-form-title">Sign In</h2>
+
+                                    <form name="loginForm">
+                                        <div class="form-group">
+                                            <label for="username">Username</label>
+
+                                            <div class="input-group">
+                                                <label for="username" class="input-group-addon"><span class="fa fa-fw fa-user"></span></label>
+                                                <input type="text" id="username" name="username" class="form-control" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group marginBottom-20">
+                                            <label for="password">Password</label>
+
+                                            <div class="input-group">
+                                                <label for="password" class="input-group-addon"><span class="fa fa-fw fa-lock"></span></label>
+                                                <input type="password" id="password" name="password" class="form-control" autocomplete="off" />
+                                            </div>
+                                        </div>
+
+                                        <a href="#" class="btn btn-success btn-lg btn-block">
+                                            Sign In <span class="fa fa-check marginLeft-5"></span>
+                                        </a>
+
+                                        <div class="marginTop-5 text-right">
+                                            <a href="#">Forgotten your password?</a>
+                                        </div>
+                                    </form>
+
+                                    <div data-ng-if="loginCtrl.accessibilityOption">
+                                        <hr>
+
+                                        <h3 class="login-form-title">Accessibility</h3>
+
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="accessibility-checkbox" value="true">
+                                            <label for="accessibility-checkbox">Enable accessibility enhancements</label>
+                                            <!--<label for="accessibility-checkbox">Disable accessibility enhancements</label>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-md-pull-4 login-content">
+                                <div>
+                                    <div class="login-content-header hidden-xs hidden-sm">
+                                        <h1>MyView Dashboard</h1>
+                                    </div>
+
+                                    <div class="login-content-body">
+                                        <div class="well well-sm well-shadow">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img src="../../images/welcome.png" class="media-object img-responsive" alt="News Image" />
+                                                </div>
+
+                                                <div class="media-body">
+                                                    <h4 class="media-heading"><span>Welcome to MyView Dashboard Responsive</span></h4>
+
+                                                    <div>
+                                                        <span>Welcome to MyView. This section is the WELCOME item, which can be edited from HRPORTAL in ResourceLink.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="well well-sm well-shadow">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img src="../../images/welcome.png" class="media-object img-responsive" alt="News Image" />
+                                                </div>
+
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">
+                                                        <a href="#">This is a news item link</a>
+                                                    </h4>
+
+                                                    <div>
+                                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="well well-sm well-shadow">
+                                            <div class="media">
+                                                <div class="pull-left">
+                                                    <img src="../../images/welcome.png" class="media-object img-responsive" alt="News Image" />
+                                                </div>
+
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">
+                                                        <a href="#">This is another news item link</a>
+                                                    </h4>
+
+                                                    <div>
+                                                        Ut wisi enim ad minim veniam, <a href="#">quis nostrud exerci tation ullamcorper</a> suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <footer class="navbar navbar-fixed-bottom">
+                        <div class="container-fluid">
+                            <ul class="nav navbar-nav navbar-left">
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                       id="language-drop-down"
+                                       aria-expanded="false">
+                                        <span class="fa fa-globe"></span> Language <em class="fa fa-angle-up"></em>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">English</a></li>
+                                        <li><a href="#">Welsh</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <div class="navbar-text">
+                                <div>&copy; 2011-2016 NGA Human Resources. All rights reserved. No unauthorised access.</div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+        <!-- build:js(src/main/app) ../../scripts/vendor.js -->
+        <script src="../../bower_components/PACE/pace.min.js"></script>
+        <script src="../../bower_components/modernizr/modernizr.js"></script>
+        <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- endbuild -->
+
+        <script type="text/javascript">
+            (function () {
+                $("#wrapper .navbar-toggle").click(function(){
+                   $("body").toggleClass("showNav");
+                });
+
+                $(".widget-settings").click(function(){
+                   $(".menuList-main").toggleClass("hideNav");
+                });
+            })();
+        </script>
+    </body>
+</html>
+
+

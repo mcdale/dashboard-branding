@@ -1,0 +1,583 @@
+/* ONBOARDING ========================================================================== */
+/* EMPLOYEE CARD ----------------------------- */
+.onbd-employeeProfile-card {
+  margin-bottom: 0;
+  padding: 9px;
+  background-color: fade(@themeColour_BGContent, 70%);
+
+  nga-photo {
+    width: 2.143em;
+  }
+  .h5 {
+    margin-bottom: 0;
+  }
+  small {
+    line-height: 1.1;
+  }
+}
+
+/* ------------------------------------------- */
+
+/* TOP WRAPPER ------------------------------- */
+.onbd-top-wrapper {
+  margin-bottom: 20px;
+  .narrowMargin();
+
+  /* Block Base */
+  .well {
+    margin-bottom: 0;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+      .fontAwesome('', 1em, 100px, block);
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      color: fade(#000, 4%);
+      pointer-events: none;
+    }
+  }
+
+  @media @deviceMobile {
+    div.well:before {
+      line-height: 0;
+      top: 50%;
+      bottom: auto;
+      left: 0;
+      right: 0;
+      font-size: 70px;
+      text-align: center;
+    }
+
+  }
+
+  /* Countdown Block */
+  .onbd-countdown {
+    &:before {
+      font-size: 150px;
+      content: "\f133";
+    }
+
+    .calDate {
+      display: block;
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      > span, > div {
+        display: inline-block;
+        line-height: inherit;
+        font-size: inherit;
+      }
+      > span {
+        padding: 0 7.5px;
+      }
+      > div {
+        min-width: 1.3em;
+        font-weight: bold;
+      }
+    }
+
+    &-days {
+      width: 10vw;
+      max-width: 150px;
+      height: 10vw;
+      max-height: 150px;
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      background-color: fade(@themeColour_BGContent, 65%);
+      border: 2px solid fade(#000, 10%);
+      text-align: center;
+      .border-radius(100%);
+      .translate(50%, -50%);
+
+      > div, > span {
+        width: 100%;
+        display: block;
+        position: absolute;
+        left: 0;
+      }
+
+      > div {
+        bottom: 40%;
+        color: @themeColour_accent;
+        font-size: 4em;
+        line-height: 1;
+        font-weight: 200;
+        .animation(slideBottom 1.5s 1s ease both);
+        .opacity(0);
+      }
+      > span {
+        top: 60%;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        .animation(slideTop 1.5s 1s ease both);
+        .opacity(0);
+      }
+
+      @media @deviceTablet {
+        width: 16.5vw;
+        height: 16.5vw;
+      }
+
+      @media @deviceDesktop {
+        width: 13.5vw;
+        height: 13.5vw;
+      }
+
+      @media @deviceDesktopLg {
+        max-width: 130px;
+        max-height: 130px;
+        top: 50%;
+        right: 15px; .translate(0, -50%);
+        > div {
+          font-size: 3.8em;
+        }
+
+        > span {
+          font-size: 1.2em;
+        }
+      }
+
+      @media @deviceDesktopXLg {
+        width: 10.25vw;
+        max-width: 162px;
+        height: 10.25vw;
+        max-height: 162px;
+        right: 2vw;
+        > div {
+          font-size: 4em;
+        }
+
+        > span {
+          font-size: 1.2em;
+        }
+      }
+    }
+
+    @media @deviceMobile {
+      .calDate {
+        display: inline-block;
+        position: static;
+      }
+
+      &-days {
+        width: 5.5em;
+        height: 5.5em;
+        right: 15px;
+        .translate(0, -50%);
+        > div {
+          font-size: 2.2em;
+          font-weight: normal;
+        }
+        > span {
+          font-size: 0.8em;
+          letter-spacing: 0.2em;
+        }
+      }
+    }
+
+    // Started
+    &.started {
+      .calDate {
+        width: 3em;
+        height: 3em;
+        margin: 0 0 -1.5em -1.5em;
+        bottom: 50%;
+        left: 50%;
+        font-size: 2.5em;
+        .animation(slideBottom 1.5s 1s ease both);
+
+        > span, > div {
+          display: block;
+        }
+        > span {
+          font-size: 0.65em;
+        }
+        > div {
+          font-size: 1.65em;
+          line-height: 1.2;
+          font-weight: normal;
+        }
+
+        @media @deviceDesktopLg {
+          font-size: 2em;
+        }
+        @media @deviceTablet {
+          font-size: 2em;
+        }
+      }
+
+      .onbd-countdown-days {
+        width: auto;
+        max-width: none;
+        height: auto;
+        top: auto;
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        border-radius: 0;
+        font-size: 1.1em;
+        line-height: 1;
+        .transform(none);
+        .animation(fadeIn 1.5s 1.5s ease both);
+
+        > div, > span {
+          width: auto;
+          display: inline-block;
+          position: static;
+          font-size: inherit;
+          .animation(none);
+          .opacity(1);
+        }
+        > div {
+          font-weight: bold;
+        }
+        > span {
+          letter-spacing: normal;
+        }
+      }
+
+      @media @deviceMobile {
+        .h4 {
+          display: inline-block;
+        }
+
+        .calDate {
+          margin: 0;
+          float: right;
+          font-size: 1.5em;
+        }
+
+        .onbd-countdown-days {
+          font-size: 1.25em;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  /* Progress Block */
+  .onbd-progress {
+    &:before {
+      bottom: -5px;
+      font-size: 170px;
+      content: "\f0e4";
+    }
+
+    > span {
+      display: block;
+      position: absolute;
+      bottom: 50%;
+      left: 0;
+      right: 0;
+      font-size: 6.5vw;
+      line-height: 0;
+      font-weight: 200;
+      text-align: center;
+      .animation(fadeIn 1s 2s ease both);
+    }
+
+    > .onbd-progress-state {
+      position:absolute; bottom:40px; left:15px; right:15px;
+    }
+
+    > .progress {
+      margin: 0;
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+      .progress-bar {
+        .opacity(0);
+        .animation(progress 1s 3s ease both);
+        .transform-origin(left center);
+      }
+    }
+
+    @media @deviceDesktopLg {
+      > span {
+        left:15px;
+        right:15px;
+        font-size:5.5em;
+        text-align: left;
+      }
+
+      &-manager > span { bottom:55%; }
+    }
+
+    @media @deviceTablet {
+      > span { font-size:8.25vw; }
+    }
+
+    @media @deviceMobile {
+      .h4 {
+        display: inline-block;
+      }
+
+      > span {
+        margin-bottom: 10px;
+        position: static;
+        float: right;
+        font-size: 3em;
+        line-height: 1;
+      }
+
+      > .onbd-progress-state { position:static; }
+
+      > .progress {
+        height: 10px;
+        position: static;
+        clear: both;
+      }
+    }
+  }
+
+  /* Details Block */
+  .onbd-details {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    &:before {
+      top: 0;
+      bottom: auto;
+      content: "\f007";
+    }
+  }
+
+  /* Team Block */
+  .onbd-team {
+    padding-bottom: 5px;
+    &:before {
+      top: 5px;
+      bottom: auto;
+      content: "\f0c0";
+    }
+
+    @media @deviceTabletDesktop {
+      &-cards {
+        display: flex;
+        > .col-sm-6 {
+          display: inherit;
+          float: none;
+          flex-direction: column;
+          flex-wrap: wrap;
+          .onbd-employeeProfile-card {
+            display: inherit;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+          }
+
+          &#managerDetails > .onbd-employeeProfile-card {
+            flex-grow: 0;
+          }
+        }
+      }
+    }
+  }
+
+  /* Flexbox Layout */
+  @media @deviceTabletDesktop {
+    display: flex;
+    > .col-md-3 {
+      display: inherit;
+    }
+
+    > .col-md-6 {
+      display: inherit;
+      flex-direction: column;
+      > .well {
+        flex-grow: 1; /*flex-basis:50%;*/
+      }
+    }
+  }
+  @media @deviceMobile {
+    nga-onboarder-countdown, nga-onboarder-progress, nga-onboarder-details {
+      display: block
+    }
+  }
+}
+
+/* ------------------------------------------- */
+
+/* PANEL GROUP ------------------------------- */
+.onbd-panel-group {
+  .panel {
+    &-title {
+      color: @themeColour_accent;
+      font-size: @font-size-h4;
+    }
+  }
+
+  > nga-onboarder-task-list, nga-onboarder-task-list-manager, nga-onboarder-first-day, nga-onboarder-first-day-manager {
+    display:block;
+
+    .panel-collapse {
+      @media @deviceTablet{ display: block;}
+      @media @deviceDesktopMd{ display: block;}
+      @media @deviceDesktopLg{ display: block;}
+    }
+  }
+}
+
+/* ------------------------------------------- */
+
+/* ONBOARDING TASKS -------------------------- */
+/* Filters */
+.onbd-taskFilter {
+  margin: 0 -10px 5px;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  > div {
+    margin-bottom: 10px;
+    padding: 0 10px;
+    -webkit-flex-grow: 30;
+    -ms-flex-grow: 30;
+    flex-grow: 30;
+
+    &:first-child {
+      -webkit-flex-grow: 100;
+      -ms-flex-grow: 100;
+      flex-grow: 100;
+    }
+
+    .flexbox & .btn-group-justified {
+      > .btn, > .btn-group {
+        -webkit-flex-basis: auto;
+        -ms-flex-basis: auto;
+        flex-basis: auto;
+      }
+    }
+
+    .form-label {
+      display: block;
+    }
+  }
+}
+
+/* Task List Responsive Table */
+.onbd-tasks {
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: -10px;
+  }
+  .responsiveTableCollapse {
+    margin: 0 -10px;
+
+    .item-cells {
+      .fa {
+        font-size: 1.25em;
+        vertical-align: middle;
+      }
+
+      a.state-color {
+        display: block;
+        overflow: hidden;
+        zoom: 1;
+        > .fa {
+          margin-right: 5px;
+          float: left;
+        }
+        > span {
+          display: block;
+          overflow: hidden;
+          zoom: 1;
+        }
+      }
+      a.disabledLink {
+        pointer-events: none;
+        cursor: default;
+      }
+    }
+
+    .btn-taskComplete.btn-success {
+      text-transform: uppercase;
+    }
+    .item-cells .btn-taskComplete {
+      font-size: 0.9em;
+      > .fa {
+        font-size: 1em;
+      }
+    }
+    .item-btnLinks .btn-taskComplete {
+      min-width: 9.15em;
+      font-size: 0.85em;
+    }
+
+    .table-header > .item-row > .item-cells > .row {
+      overflow: visible;
+    }
+  }
+}
+
+/* ------------------------------------------- */
+
+/* FIRST DAY INFO ---------------------------- */
+.onbd-firstDay {
+  padding-bottom: 5px;
+  font-size: 90%;
+  > .row > div {
+    margin-bottom: 10px;
+  }
+}
+
+/* ------------------------------------------- */
+/* ===================================================================================== */
+
+/* ===================================================================================== */
+/* ------------------------------------------- */
+/* ------------------------------------------- */
+/* ===================================================================================== */
+
+.onboardersDetails {
+  .profileInfo-basicDetails {
+    > div {
+      & + div {
+        > span {
+          padding-top: 5px;
+        }
+      }
+
+      .onboarder-profileImage {
+        position: relative;
+        nga-photo {
+          width: @line-height-computed + 5;
+          position: absolute;
+          top: 2px;
+          left: -28px;
+        }
+      }
+    }
+  }
+}
+
+nga-countdown {
+  .media {
+    padding-right: 1px;
+  }
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

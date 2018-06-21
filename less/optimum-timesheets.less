@@ -1,0 +1,30 @@
+.timesheet-employee__details {
+  > div {
+    padding: 10px;
+    .clearfix();
+
+    > div {
+      .siteFontSize();
+    }
+    > div.media {
+      > nga-photo {
+        width: 25%;
+        min-width: 30px;
+        max-width: 45px;
+        padding-bottom: 5px;
+        .transition(@baseTransition);
+        @media @deviceMobile {
+          min-width: 25px;
+          padding-right: 5px;
+        }
+      }
+      > .media-body {
+        .transition(@baseTransition);
+        > h4 {
+          margin-bottom: 0;
+          font-size: 1.1em;
+        }
+      }
+    }
+  }
+}

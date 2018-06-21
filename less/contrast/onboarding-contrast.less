@@ -1,0 +1,50 @@
+/* ONBOARDING ========================================================================== */
+
+/* TOP WRAPPER ------------------------------- */
+.onbd-top-wrapper {
+  /* Countdown Block */
+  .onbd-countdown {
+    .calDate {
+      border: 1px solid @highVis_primary;
+      background: none;
+      > span {
+        background: transparent;
+        color: @highVis_primary;
+        font-size: 1em;
+      }
+      > div {
+        border: 1px solid @highVis_primary;
+        color: #FFF;
+      }
+    }
+    &-days {
+      background: none;
+      border: 1px solid @highVis_primary;
+      > div {
+        color: @highVis_primary;
+
+      }
+    }
+    // Started
+    &.started {
+      .onbd-countdown-days {
+        > div {
+          color: @highVis_primary;
+        }
+        // color: @highVis_primary;
+      }
+    }
+  }
+}
+  /* ------------------------------------------- */
+  /* PANEL GROUP ------------------------------- */
+  .onbd-panel-group {
+    .panel {
+      &-title {
+        color: @highVis_primary;
+        font-size: @font-size-h4;
+      }
+    }
+  }
+
+/* ------------------------------------------- */

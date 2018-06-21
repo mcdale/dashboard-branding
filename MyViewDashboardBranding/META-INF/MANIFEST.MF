@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: DevAdmin
+Build-Jdk: 1.6.0_45
+Hudson-Build-Number: 46
+Hudson-Project: Branding - Black and Blue
+Hudson-Version: 1.531
+Jenkins-Build-Number: 46
+Jenkins-Project: Branding - Black and Blue
+Jenkins-Version: 1.531
+

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" id="viewport">
+        <meta name=apple-mobile-web-app-capable content="yes"/>
+        <meta name=apple-mobile-web-app-status-bar-style content="black"/>
+
+        <title>Styling Template Example - Branding Pack</title>
+
+        <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="57x57" href="../../icons/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="../../icons/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="../../icons/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="../../icons/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="../../icons/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="../../icons/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="../../icons/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="../../icons/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../icons/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="../../icons/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="../../icons/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="../../icons/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="../../icons/android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="../../icons/favicon-194x194.png" sizes="194x194">
+        <link rel="shortcut icon" href="../../icons/favicon.ico">
+
+        <!-- build:css(src/main/app) ../../css/vendor.css -->
+        <!-- bower:css --
+        <!-- Font awesome -->
+        <link href="../../bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../bower_components/angular-motion/dist/angular-motion.min.css" rel="stylesheet">
+        <link href="../../bower_components/PACE/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+        <link href="../../bower_components/isteven-angular-multiselect/isteven-multi-select.css" rel="stylesheet">
+        <link href="../../bower_components/angular-ui-grid/ui-grid.min.css" rel="stylesheet">
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <link href="../../css/style-loading.css" rel="stylesheet">
+        <link href="../../css/custom-bootstrap.css" rel="stylesheet">
+        <link href="../../css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="wrapper" class="main-dashboard">
+            <div id="left-panel" class="left-panel">
+                <div id="left-content" class="left-content">
+                    <div>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="" id="me-tab-link">ME</a></li>
+                            <li><a href="" id="my-people-tab-link">MY PEOPLE</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="id-panel">
+                        <div class="emp-photo">
+                            <div>
+                                <nga-photo>
+                                    <div class="nga-photo img-profile" style="background-image:url(../../images/default_employee.png)">
+                                        <img src="../../images/default_employee.png" alt="default employee photo">
+                                    </div>
+                                </nga-photo>
+
+                                <button class="emp-photo-upload btn btn-circle btn-primary btn-sm"
+                                        id="upload-profile-picture-button" >
+                                    <span class="fa fa-camera"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="emp-data">
+                            <span title="Joe Bloggs">Joe Bloggs</span>
+
+                            <div>
+                                <select class="form-control input-sm">
+                                    <option selected>Manager</option>
+                                    <option>Developer</option>
+                                    <option>Director</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="menuList employee-menu">
+                        <div class="menuList-main">
+                            <ul>
+                                <li class="menu-item active">
+                                    <div>
+                                        <a href="#" class="widget-settings">
+                                            <em class="fa fa-wrench"></em>
+                                        </a>
+                                    </div>
+                                    <a href="#">Dashboard</a>
+                                </li>
+
+                                <li class="menu-item parent expanded">
+                                    <a href="#">Expenses</a>
+                                    <ul class="child-items">
+                                        <li><a href="#">Expenses History </a></li>
+                                        <li><a href="#">New Expense Claim</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="menu-item"><a href="#">Pay Docs</a></li>
+                                <li class="menu-item"><a href="#">CV Print</a></li>
+                                <li class="menu-item"><a href="#">Sickness Notification</a></li>
+                                <li class="menu-item"><a href="#">Authorisation</a></li>
+                                <li class="menu-item"><a href="#">MyTeam</a></li>
+                                <li class="menu-item"><a href="#">Personal Details</a></li>
+                                <li class="menu-item"><a href="#">Training</a></li>
+                                <li class="menu-item"><a href="#">Case Management</a></li>
+                                <li class="menu-item"><a href="#">Vehicle Management</a></li>
+                                <li class="menu-item"><a href="#">Holiday</a></li>
+                                <li class="menu-item"><a href="#">Web Timesheet</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="menuList-dashboard ng-hide" style="display: none;">
+                            <div>
+                                <a class="btn widget-settings" type="button">
+                                    <span class="fa fa-angle-left"></span>Back
+                                </a>
+
+                                <hr />
+
+                                <span class="fa fa-fw fa-wrench marginRight-5"></span>Dashboard Settings
+                            </div>
+
+                            <div class="menuList-widgetContainer">
+                                <div>
+                                    <a href="">
+                                        <span class="widgetIcon widgetIcon-WEBREPORTS"></span> Reporting Services
+                                        <em class="fa fa-plus"></em>
+                                        <span class="sr-only ng-binding">Add to Dashboard</span>
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="">
+                                        <span class="widgetIcon widgetIcon-BIRTHDAYS"></span> Team Birthdays
+                                        <em class="fa fa-plus"></em>
+                                        <span class="sr-only ng-binding">Add to Dashboard</span>
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="">
+                                        <span class="widgetIcon widgetIcon-AUTH"></span> Authorisations
+                                        <em class="fa fa-plus"></em>
+                                        <span class="sr-only ng-binding">Add to Dashboard</span>
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="">
+                                        <span class="widgetIcon widgetIcon-PROGRESS"></span> Work In Progress
+                                        <em class="fa fa-plus"></em>
+                                        <span class="sr-only ng-binding">Add to Dashboard</span>
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="">
+                                        <span class="widgetIcon widgetIcon-HOLIDAY"></span> Holiday Balance
+                                        <em class="fa fa-plus"></em>
+                                        <span class="sr-only ng-binding">Add to Dashboard</span>
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="">
+                                        <span class="widgetIcon widgetIcon-ELEARNING"></span> E-Learning
+                                        <em class="fa fa-plus"></em>
+                                        <span class="sr-only ng-binding">Add to Dashboard</span>
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="">
+                                        <span class="widgetIcon widgetIcon-PAYDOCS"></span> Pay Documents
+                                        <em class="fa fa-plus"></em>
+                                        <span class="sr-only ng-binding">Add to Dashboard</span>
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="">
+                                        <span class="widgetIcon widgetIcon-CASEMANAGEMENT"></span> Cases
+                                        <em class="fa fa-plus"></em>
+                                        <span class="sr-only ng-binding">Add to Dashboard</span>
+                                    </a>
+                                </div>
+
+                                <div>
+                                    <a href="">
+                                        <span class="widgetIcon widgetIcon-ABSENCE"></span> Team Absence
+                                        <em class="fa fa-plus"></em>
+                                        <span class="sr-only ng-binding">Add to Dashboard</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="main-container" class="main-container">
+                <div>
+                    <header class="navbar navbar-fixed-top">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" tabindex="-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                </button>
+
+                                <a href="" class="navbar-brand" tabindex="1">
+                                    <span>NGA Human Resources</span>
+                                    <em class="fa fa-home"></em>
+                                </a>
+                            </div>
+
+                            <nav class="navbar-content">
+                                <ul class="navbar-cta">
+                                    <li><a class="btn btn-circle" tabindex="2">?</a></li>
+                                    <li>
+                                        <a class="btn btn-circle" tabindex="3">
+                                            <span class="infoLink">i</span>
+                                            <span class="badge">12</span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown searchDropdown">
+                                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" tabindex="4">
+                                            <span class="btn btn-circle"><span class="fa fa-search"></span></span>
+                                        </a>
+
+                                        <div class="dropdown-menu">
+                                            <form class="navbar-form" role="search">
+                                                <input type="text" class="form-control" placeholder="Search..." tabindex="5">
+                                                <button class="btn btn-default" type="button" tabindex="6">
+                                                    <span class="fa fa-search"></span>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </li>
+
+                                    <li class="hidden-xs hidden-sm">
+                                        <span>Welcome, Joe</span>
+                                    </li>
+
+                                    <li class="dropdown accountDropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                           aria-expanded="false" tabindex="7">
+                                            <nga-photo>
+                                                <div class="nga-photo img-profile" style="background-image:url(../../images/default_employee.png)">
+                                                    <img src="../../images/default_employee.png" alt="default employee photo">
+                                                </div>
+                                            </nga-photo>
+
+                                            <span class="visible-md-inline-block visible-lg-inline-block">Account</span>
+                                            <span class="fa fa-angle-down"></span>
+                                        </a>
+
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Change password</a></li>
+                                            <li><a href="#">Update profile</a></li>
+                                            <li><a href="#">View details</a></li>
+                                            <li class="divider hidden-xs"></li>
+                                            <li><a href="#">Update social media</a></li>
+                                            <li><a href="#" class="socialLink socialLink-linkedIn"><span class="fa fa-fw fa-linkedin-square"></span>My LinkedIn</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="hidden-xs" id="logout-menu">
+                                        <a role="button" id="logout-link" tabindex="8">
+                                            <span class="fa fa-power-off"></span>
+                                            Sign Out
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </header>
+                </div>
+
+                <div class="main-panel dashboard-home" id="page-wrapper">
+                    <div class="container-fluid">
+                        <ol class="breadcrumb">
+                            <li><span role="button"><em class="fa fa-home"></em></span></li>
+                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="#">Level 2 link</a></li>
+                            <li><a href="#">Level 3 link</a></li>
+                        </ol>
+
+                        <div class="main-content animate-main-content">
+                            <div class="row narrow dashboard-widget-wrapper">
+                                <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12">
+                                    <div class="row narrow">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 dashboard-widget-column">
+
+                                            <div class="panel panel-primary panel-dashboard">
+                                                <span class="label">26</span>
+
+                                                <div class="panel-heading widgetDragHandle">
+                                                    <div class="panel-controls">
+                                                        <a class="ctrl-settings">
+                                                            <span class="sr-only">Settings</span>
+                                                            <em class="fa fa-gear"></em>
+                                                        </a>
+
+                                                        <a class="ctrl-minimise">
+                                                            <span class="sr-only">Minimise</span>
+                                                            <em class="fa fa-chevron-up"></em>
+                                                        </a>
+
+                                                        <a class="ctrl-close">
+                                                            <span class="sr-only">Close</span>
+                                                            <em class="fa fa-close"></em>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="panel-title h3">
+                                                        <em class="widgetIcon widgetIcon-AUTH"></em>
+                                                        Authorisations
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel-collapse collapse in">
+                                                    <div class="panel-body" style="height:110px"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="panel panel-primary panel-dashboard">
+                                                <span class="label">13</span>
+
+                                                <div class="panel-heading widgetDragHandle">
+                                                    <div class="panel-controls">
+                                                        <a class="ctrl-settings">
+                                                            <span class="sr-only">Settings</span>
+                                                            <em class="fa fa-gear"></em>
+                                                        </a>
+
+                                                        <a class="ctrl-minimise">
+                                                            <span class="sr-only">Minimise</span>
+                                                            <em class="fa fa-chevron-up"></em>
+                                                        </a>
+
+                                                        <a class="ctrl-close">
+                                                            <span class="sr-only">Close</span>
+                                                            <em class="fa fa-close"></em>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="panel-title h3">
+                                                        <em class="widgetIcon widgetIcon-PROGRESS"></em>
+                                                        Work in progress
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel-collapse collapse in">
+                                                    <div class="panel-body" style="height:225px"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-sm-12 dashboard-widget-column">
+
+                                            <div class="panel panel-primary panel-dashboard">
+                                                <div class="panel-heading widgetDragHandle">
+                                                    <div class="panel-controls">
+                                                        <a class="ctrl-settings">
+                                                            <span class="sr-only">Settings</span>
+                                                            <em class="fa fa-gear"></em>
+                                                        </a>
+
+                                                        <a class="ctrl-minimise">
+                                                            <span class="sr-only">Minimise</span>
+                                                            <em class="fa fa-chevron-up"></em>
+                                                        </a>
+
+                                                        <a class="ctrl-close">
+                                                            <span class="sr-only">Close</span>
+                                                            <em class="fa fa-close"></em>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="panel-title h3">
+                                                        <em class="widgetIcon widgetIcon-HOLIDAY"></em>
+                                                        Holiday balance
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel-collapse collapse in">
+                                                    <div class="panel-body" style="height:50px"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="panel panel-primary panel-dashboard">
+                                                <span class="label">3</span>
+
+                                                <div class="panel-heading widgetDragHandle">
+                                                    <div class="panel-controls">
+                                                        <a class="ctrl-settings">
+                                                            <span class="sr-only">Settings</span>
+                                                            <em class="fa fa-gear"></em>
+                                                        </a>
+
+                                                        <a class="ctrl-minimise">
+                                                            <span class="sr-only">Minimise</span>
+                                                            <em class="fa fa-chevron-up"></em>
+                                                        </a>
+
+                                                        <a class="ctrl-close">
+                                                            <span class="sr-only">Close</span>
+                                                            <em class="fa fa-close"></em>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="panel-title h3">
+                                                        <em class="widgetIcon widgetIcon-CASEMANAGEMENT"></em>
+                                                        Cases
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel-collapse collapse in">
+                                                    <div class="panel-body" style="height:135px"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="row narrow">
+                                        <div class="col-lg-6 col-md-12 col-sm-12 dashboard-widget-column">
+
+                                            <div class="panel panel-primary panel-dashboard">
+                                                <div class="panel-heading widgetDragHandle">
+                                                    <div class="panel-controls">
+                                                        <a class="ctrl-settings">
+                                                            <span class="sr-only">Settings</span>
+                                                            <em class="fa fa-gear"></em>
+                                                        </a>
+
+                                                        <a class="ctrl-minimise">
+                                                            <span class="sr-only">Minimise</span>
+                                                            <em class="fa fa-chevron-up"></em>
+                                                        </a>
+
+                                                        <a class="ctrl-close">
+                                                            <span class="sr-only">Close</span>
+                                                            <em class="fa fa-close"></em>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="panel-title h3">
+                                                        <em class="widgetIcon widgetIcon-WEBREPORTS"></em>
+                                                        Reporting services
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel-collapse collapse in">
+                                                    <div class="panel-body" style="height:250px"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="panel panel-primary panel-dashboard">
+                                                <span class="label">1</span>
+
+                                                <div class="panel-heading widgetDragHandle">
+                                                    <div class="panel-controls">
+                                                        <a class="ctrl-settings">
+                                                            <span class="sr-only">Settings</span>
+                                                            <em class="fa fa-gear"></em>
+                                                        </a>
+
+                                                        <a class="ctrl-minimise">
+                                                            <span class="sr-only">Minimise</span>
+                                                            <em class="fa fa-chevron-up"></em>
+                                                        </a>
+
+                                                        <a class="ctrl-close">
+                                                            <span class="sr-only">Close</span>
+                                                            <em class="fa fa-close"></em>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="panel-title h3">
+                                                        <em class="widgetIcon widgetIcon-ELEARNING"></em>
+                                                        E-Learning
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel-collapse collapse in">
+                                                    <div class="panel-body" style="height:55px"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-12 col-sm-12 dashboard-widget-column">
+
+                                            <div class="panel panel-primary panel-dashboard">
+                                                <div class="panel-heading widgetDragHandle">
+                                                    <div class="panel-controls">
+                                                        <a class="ctrl-settings">
+                                                            <span class="sr-only">Settings</span>
+                                                            <em class="fa fa-gear"></em>
+                                                        </a>
+
+                                                        <a class="ctrl-minimise">
+                                                            <span class="sr-only">Minimise</span>
+                                                            <em class="fa fa-chevron-up"></em>
+                                                        </a>
+
+                                                        <a class="ctrl-close">
+                                                            <span class="sr-only">Close</span>
+                                                            <em class="fa fa-close"></em>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="panel-title h3">
+                                                        <em class="widgetIcon widgetIcon-ABSENCE"></em>
+                                                        Team absence
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel-collapse collapse in">
+                                                    <div class="panel-body" style="height:130px"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="panel panel-primary panel-dashboard">
+                                                <span class="label">3</span>
+
+                                                <div class="panel-heading widgetDragHandle">
+                                                    <div class="panel-controls">
+                                                        <a class="ctrl-settings">
+                                                            <span class="sr-only">Settings</span>
+                                                            <em class="fa fa-gear"></em>
+                                                        </a>
+
+                                                        <a class="ctrl-minimise">
+                                                            <span class="sr-only">Minimise</span>
+                                                            <em class="fa fa-chevron-up"></em>
+                                                        </a>
+
+                                                        <a class="ctrl-close">
+                                                            <span class="sr-only">Close</span>
+                                                            <em class="fa fa-close"></em>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="panel-title h3">
+                                                        <em class="widgetIcon widgetIcon-PAYDOCS"></em>
+                                                        Pay documents
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel-collapse collapse in">
+                                                    <div class="panel-body" style="height:95px"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <footer class="navbar navbar-fixed-bottom">
+                        <div class="container-fluid">
+                            <!--<ul class="nav navbar-nav navbar-left">
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                       id="language-drop-down"
+                                       aria-expanded="false">
+                                        <span class="fa fa-globe"></span> Language <em class="fa fa-angle-up"></em>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">English</a></li>
+                                        <li><a href="#">Welsh</a></li>
+                                    </ul>
+                                </li>
+                            </ul>-->
+
+                            <div class="navbar-text">
+                                <div>&copy; 2011-2016 NGA Human Resources. All rights reserved. No unauthorised access.</div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+        <!-- build:js(src/main/app) ../../scripts/vendor.js -->
+        <script src="../../bower_components/PACE/pace.min.js"></script>
+        <script src="../../bower_components/modernizr/modernizr.js"></script>
+        <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- endbuild -->
+
+        <script type="text/javascript">
+            (function () {
+                $('a[href=""],a[href="#"]').click(function(e){
+                    e.preventDefault();
+                });
+
+                $("#wrapper .navbar-toggle").click(function(){
+                   $("body").toggleClass("showNav");
+                });
+
+                $(".widget-settings").click(function(){
+                   $(".menuList.employee-menu > div").toggleClass("ng-hide").toggle("fast");
+                });
+            })();
+        </script>
+    </body>
+</html>
+
+

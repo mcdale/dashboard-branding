@@ -1,0 +1,42 @@
+{
+  "name": "myview",
+  "version": "1.0.0",
+  "description": "Customisation of MyView Web Application Themes",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test",
+    "bower": "bower"
+  },
+  "config": {
+    "bower": {
+      "directory": "./Branding/bower_components/"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "."
+  },
+  "author": "Marc Alexander",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-if": "^2.0.2",
+    "gulp-less": "^3.5.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-scss-lint": "^0.6.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-war": "^0.1.4",
+    "gulp-zip": "^4.1.0",
+    "require-dir": "^1.0.0",
+    "yargs": "^11.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "bootstrap-sass": "^3.3.7"
+  }
+}

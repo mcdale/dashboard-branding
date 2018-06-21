@@ -1,0 +1,31 @@
+@import (reference) "global/NGAvariables.less";
+@import (reference) "custom-bootstrap-variables.less";
+@import (reference) "style-theme-variables.less";
+
+@media print {
+  .no-print, .no-print * {
+    display: none !important;
+  }
+
+  #wrapper {
+    & > .left-panel {
+      display: none
+    }
+
+    & > .main-container {
+      padding: 0 !important;
+      & > .main-panel {
+        padding: 0 !important;
+        width: 100%;
+        min-height: 0 !important;
+        & > .container-fluid {
+          padding: 0 !important;
+        }
+      }
+    }
+  }
+
+  .breadcrumb, .scrollToTop {
+    display: none;
+  }
+}

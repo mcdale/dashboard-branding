@@ -1,0 +1,321 @@
+/* DASHBOARD WIDGETS =================================================================== */
+.dashboard-home {
+  background-image:none !important;
+  &:before, > .container-fluid:before { display:none; }
+}
+
+/* WIDGET CONTAINER + DRAG ------------------- */
+.dashboard-widget {
+  &-wrapper {
+    .no-touch & .panel-dashboard.dragging { .highVis_outlineShadow(2px, #FFF); }
+  }
+
+  &-dropzone {
+    #gradient > .striped(fade(#FFF,50%));
+    .no-cssanimations & { background-color:fade(#FFF,50%); }
+
+    &:before { background:@highVis_BGSite; }
+  }
+}
+
+/* ------------------------------------------- */
+
+/* BASE WIDGET PANEL ------------------------- */
+.panel-dashboard {
+  outline:none; .highVis_outlineShadow(1px, #FFF);
+  .no-touch &:hover { .highVis_outlineShadow(2px, #FFF); }
+  /* Content Loader */
+  .contentLoad { color:@highVis_primary; }
+
+  /* Panel Header */
+  > .panel-heading {
+    > .panel-controls {
+      border-left-color:#FFF; background:transparent;
+
+      > a {
+        border-bottom-width:0; color:#FFF;
+
+        .controlLinkColour(@color:@brand-primary) {
+          outline:0 solid fade(@color,0%);
+          &:hover, &:focus, &.active, &:active { background-color:@color; outline:4px solid @color; color:#000; }
+        }
+
+        &.ctrl-close     { .controlLinkColour(@highVis_danger); }
+        &.ctrl-minimise  { .controlLinkColour(@highVis_warning); }
+        &.ctrl-settings  {
+          .controlLinkColour(@highVis_success);
+          &:active { .rotate(0deg); }
+        }
+      }
+    }
+
+    .panel-title {
+      &, .widgetIcon { color:inherit; }
+    }
+  }
+
+  > .panel-collapse {
+    .panel-body + .panel-footer { padding-top:15px; padding-bottom:15px; }
+  }
+
+  /* Panel Notification Number */
+  > .label {
+    line-height:1.45em; background-color:#000; font-weight:bold; .highVis_outlineShadow(1px, @highVis_warning);
+    &:after { margin-left:-5px; bottom:-5px; border-width:5px 5px 0 5px; border-top-color:@highVis_warning; }
+  }
+}
+/* ------------------------------------------- */
+
+/* Widget Accordion -------------------------- */
+.panel-group.widget-accordion > .panel {
+  border-top-color:@highVis_hrBreak; outline:none;
+
+  .panel-heading {
+    a {
+      color:@highVis_primary;
+      &:after { border:2px solid #FFF; border-bottom-width:0; .transition(@baseTransition); }
+
+      &.collapsed {
+        color:#FFF; border-bottom-color:#FFF;
+        &:after { border-color:transparent; }
+        &:hover { color:@highVis_primary; border-bottom-width:2px; border-bottom-color:@highVis_primary; }
+        &:focus { color:@highVis_primary; }
+      }
+
+      .fa { color:inherit; }
+    }
+  }
+
+  .panel-collapse {
+    border:2px solid transparent; border-top-width:0; .transition(@baseTransition);
+    &.in { border-color:#FFF; }
+  }
+
+  .panel-body { font-size:100%; }
+
+  .table-striped tr { border-color:@highVis_BGContent; }
+}
+/* ------------------------------------------- */
+
+/* WIDGET TABS ------------------------------- */
+.widget-tabs {
+  > .nav-tabs {
+    padding:7.5px 5px 0; position:static; background:#444;
+
+    > li {
+      > a {
+        background:#303030; color:inherit;
+        &:hover { border-top-color:#FFF; color:inherit; }
+      }
+
+      &.active > a {
+        &, &:hover, &:focus { background:#000; color:@highVis_primary;  border-top-color:@highVis_primary; }
+        .no-touch &:hover { border-top-color:#FFF; color:#FFF;  }
+      }
+    }
+  }
+
+  > .tab-content { border-top:1px solid #FFF; }
+}
+/* ------------------------------------------- */
+
+/* AUTH WIDGET ------------------------------- */
+.widgetTableList {
+  border-bottom-color:@highVis_BGContent; font-size:100%;
+
+  > li {
+    background-color:inherit; border-color:@highVis_BGContent;
+    &:nth-child(odd) { background-color:@highVis_tableOddBG; }
+
+    &.warning { border-left-color:@highVis_warning; .box-shadow(inset 2px 0 0 @highVis_warning); }
+    &.danger { border-left-color:@highVis_danger; .box-shadow(inset 2px 0 0 @highVis_danger); }
+    &.success { border-left-color:@highVis_success; .box-shadow(inset 2px 0 0 @highVis_success); }
+
+    &, .no-touch:not(.tab-pressed) & {
+      > span {
+        display:block; text-align:center;
+
+        .date { color:@highVis_success; font-size:inherit; }
+
+        > div {
+          display:inline-block;
+
+          &.date { width:auto; }
+
+          &.description a {
+            &, &:hover, &:focus { color:@highVis_primary; }
+          }
+
+          &.controls {
+            padding:7.5px 0 0; display:block; position:static; background-color:transparent !important;
+            overflow:visible; font-size:90%; text-align:inherit;
+            .opacity(1); .box-shadow(~"none !important"); .transform(~"translate(0) !important");
+
+            .btn {
+              width:@roundSize-small; margin-left:5px !important; line-height:~"calc(@{roundSize-small} - 2px)"; display:inline-block;
+              float:none; border-width:1px; .opacity(1); .transform(~"scale(1) !important");
+
+              &:first-child { margin-left:0 !important; }
+              &:hover { outline:none; }
+
+              &.btn-primary.btn-outline.infoCollapse, &.btn-primary.btn-outline.infoPopover {
+                &:hover { background-color:@highVis_BGComponent; color:@highVis_primary; .highVis_outlineShadow(1px, @highVis_primary); }
+                &:focus { background-color:@highVis_primary; color:#000; .highVis_outlineShadow(2px, @highVis_primary, inset); }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Auth Counter */
+.authCounter {
+  > div > div { white-space:nowrap; }
+
+  /* Small Version with just counters */
+  &.small {
+    font-size:100%; font-weight:bold;
+    > div { margin-top:10px; }
+  }
+}
+/* ------------------------------------------- */
+
+/* BIRTHDAY WIDGET --------------------------- */
+.widgetBirthdayList {
+  > li {
+    border-top-color:@highVis_hrBreak;
+
+    > div {
+      .bdayName a {
+        &, &:hover, &:focus { color:@highVis_primary; }
+      }
+
+      .bdayCount {
+        color:@highVis_primary; font-size:90%; line-height:2em;
+        .label { background-color:transparent; .highVis_outlineShadow(1px, @highVis_primary, inset);  }
+      }
+      .bdayDate { color:#FFF; font-size:90%; }
+    }
+
+    .calDate {
+      border:1px solid @highVis_primary;
+      background: none;
+      > span { background:transparent; color:@highVis_primary; font-size:1em; }
+      > div { border:1px solid @highVis_primary; color:#FFF; }
+    }
+  }
+}
+/* ------------------------------------------- */
+
+/* PAY DOCS WIDGET --------------------------- */
+.widgetPayDocs > div {
+  border-top-color:@highVis_hrBreak;
+
+  > h3 { color:inherit; }
+  > ul > li {
+    > a {
+      background-color:@highVis_BGComponent; border-color:#FFF; overflow:hidden; color:@highVis_primary;
+
+      > .envelope {
+        background-color:#888;
+        &:before { border-color:transparent #AAA #DDD #DDD; }
+        &:after  { border-bottom-color:#888; }
+
+        > span {
+          &:before, &:after { background-color:#ABABAB; }
+        }
+
+        > .badge { background:@highVis_BGContent; .highVis_outlineShadow(1px, @highVis_primary); }
+      }
+
+      .no-touch &:hover { outline:1px solid @highVis_primary; }
+      .no-touch &:hover, &:focus {
+        border-color:@highVis_primary;
+        > .envelope {
+          background-color:#00B2B2;
+          &:before { border-color:transparent #00D9D9 #0FF #0FF; }
+          &:after  { border-bottom-color:#00B2B2;  }
+          > .badge { .highVis_outlineShadow(2px, @highVis_primary); }
+        }
+      }
+    }
+
+    &.new > a {
+      border-color:fade(@highVis_primary,75%);
+
+      > .envelope {
+        background-color:#00B2B2;
+        &:before { border-color:transparent #00D9D9 #0FF #0FF; }
+        &:after  { border-bottom-color:#00B2B2;  }
+      }
+
+      .no-touch &:hover, &:focus { border-color:@highVis_primary; }
+    }
+  }
+}
+/* ------------------------------------------- */
+
+/* TEAM ABSENCE ------------------------------ */
+.widgetTeamAbsence {
+  > li {
+    > a, > span {
+      > span {
+        background:@highVis_BGComponent; .highVis_outlineShadow(1px, @highVis_primary, inset);
+        > span { text-shadow:0 0 10px #000; }
+        > .fa { color:@highVis_primary; .opacity(0.08); }
+      }
+      > small { color:@highVis_primary; }
+    }
+
+    .no-touch & > a:hover > span {
+      background:@highVis_primary; color:#000;
+      > span { text-shadow:0 0 10px @highVis_primary; }
+      > .fa { color:#000; }
+    }
+
+    > span {
+      > span {
+        .opacity(1); .box-shadow(none);
+        > .fa { color:@highVis_textMuted; }
+      }
+      > small { color:#FFF; font-weight:normal; .opacity(0.5); }
+    }
+  }
+}
+/* ------------------------------------------- */
+
+/* HOLIDAY REQUEST AND LEAVE MANAGEMENT ------ */
+/* Widget Progress Bars */
+.panel-dashboard .progress {
+  > div[class=progress-bar] { background-color:@highVis_primary; }
+  & + .small {
+    font-size:90%;
+    .text-primary { color:@highVis_primary; }
+    .label-primary { background:transparent; }
+  }
+}
+
+/* Leave Management */
+.widgetLeaveManagement {
+  .panel-footer {
+    > div > a.request-popover:focus { background-color:@highVis_primary; color:#000; }
+  }
+}
+/* ------------------------------------------- */
+/* ===================================================================================== */
+/* ABSENCE REVIEW WIDGET ---------------------*/
+.reviewLeftDivisor {
+  > div {
+    float: left;
+    padding-left: 10px;
+  }
+}
+
+.reviewRightDivisor {
+  > div {
+    float: right;
+    padding-right: 10px;
+  }
+}

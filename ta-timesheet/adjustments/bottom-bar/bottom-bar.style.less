@@ -1,0 +1,37 @@
+nga-bottom-bar { display:block; }
+
+.slenderForm-bottomBar {
+  background-color:@themeColour_BGContent;
+  > div {
+    margin:0; display:-webkit-box; display:-moz-box; display:-ms-flexbox; display:-webkit-flex; display:flex;
+    -webkit-flex-direction:column-reverse; -ms-flex-direction:column-reverse; flex-direction:column-reverse;
+
+    &.affix {
+      & {
+        position:static;
+        > div { .box-shadow(none); }
+      }
+      &-top {
+        position:fixed; z-index:@zindex-navbar-fixed - 1;
+        > div {
+          margin:0 -20px; padding:0 20px;
+          .box-shadow(~"0 -3px 6px rgba(0,0,0,0.16), 0 -3px 6px rgba(0,0,0,0.23)");
+
+          @media @deviceDesktopLg { margin:0 -25px; padding:0 25px; }
+          @media @deviceTablet { margin:0 -15px; padding:0 15px; }
+          @media @deviceMobile { margin:0; padding:0; }
+        }
+      }
+    }
+
+    > div {
+      margin-bottom:0; .box-shadow(none);
+      .transition(0.15s ease); .transition-property(~"box-shadow, margin, padding");
+    }
+
+    .btn-group {
+      margin:0 -5px;
+      .btn { margin: 0 5px; }
+    }
+  }
+}

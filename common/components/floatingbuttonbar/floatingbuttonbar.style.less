@@ -1,0 +1,100 @@
+floating-button-bar {
+  display:block;
+
+  .panel-footer ~ &,
+  .panel-body ~ & {
+    border-top:2px solid @panel-inner-border;
+  }
+}
+
+.floatingButtonBar {
+  position:relative; background-color:@themeColour_BGContent;
+
+  /* BASE STYLES ------------------------------- */
+  > div {
+    > div {
+      margin:0; padding:20px; .box-shadow(~"0 0 0 rgba(0,0,0,0)");
+      .transition(0.2s ease);
+      .transition-property(~"box-shadow, margin, padding-left, padding-right, background-color");
+    }
+
+    /* Default */
+    &.affix {
+      position:static;
+      > div { background-color:@themeColour_BGContent; .box-shadow(~"0 0 0 rgba(0,0,0,0)"); }
+    }
+
+    /* Affixed */
+    &.affix-top {
+      position:fixed; z-index:@zindex-navbar-fixed - 1;
+      > div {
+        background-color:fade(@themeColour_BGContent, 87.5%);
+        .box-shadow(~"0 -3px 6px rgba(0,0,0,0.16), 0 -3px 6px rgba(0,0,0,0.23)");
+        &:hover {
+          background-color:@themeColour_BGContent;
+          .box-shadow(~"0 -3px 6px rgba(0,0,0,0.26), 0 -3px 6px rgba(0,0,0,0.23)");
+        }
+
+        .affixResponsive(@spacing; @initPadding:20px;) {
+          margin:0 -@spacing; padding-left:@spacing + @initPadding; padding-right:@spacing + @initPadding;
+        }
+        @media @deviceDesktopLg { .affixResponsive(25px); }
+        @media @deviceDesktopMd { .affixResponsive(20px); }
+        @media @deviceTablet { .affixResponsive(15px); }
+        @media @deviceMobile {
+          padding:10px @grid-gutter-width/2;
+          .header-affix & { padding-right:@grid-gutter-width; }
+        }
+      }
+    }
+  }
+  /* ------------------------------------------- */
+
+  /* BUTTON INNER CONTENT ---------------------- */
+  > div > div {
+    display:-webkit-box; display:-moz-box; display:-ms-flexbox; display:-webkit-flex; display:flex;
+    -webkit-flex-direction:row-reverse; -ms-flex-direction:row-reverse; flex-direction:row-reverse;
+    justify-content:space-between;
+
+    .floatingButtonBar-right {
+      display:inherit; justify-content:flex-end;
+      -webkit-flex-direction:row-reverse; -ms-flex-direction:row-reverse; flex-direction:row-reverse;
+      > * + * { margin-right:10px; }
+    }
+
+    .floatingButtonBar-left {
+      display:inherit;
+      > * + * { margin-left:10px; }
+
+      @media @deviceTabletDesktop {
+        &.ng-hide {
+          max-height:initial; display:inherit !important; .animation(none);
+        }
+      }
+    }
+
+    @media @deviceMobile {
+      display:block;
+
+      .floatingButtonBar-left, .floatingButtonBar-right {
+        .btn {
+          .button-size(@padding-small-vertical; @padding-small-horizontal; @font-sizeEm-sm; @line-height-small; @btn-border-radius-small);
+        }
+      }
+
+      .floatingButtonBar-right {
+        width:100%;
+        display:-webkit-box; display:-moz-box; display:-ms-flexbox; display:-webkit-flex; display:flex;
+        > * { flex-grow:1; }
+        > * + * { margin-right:5px; }
+        > .btn-link { flex-grow:0; }
+      }
+
+      .floatingButtonBar-left {
+        &:before { width:100%; height:10px; display:block; content:''; }
+        > * + * { margin-left:5px; }
+      }
+    }
+  }
+  /* ------------------------------------------- */
+}

@@ -1,0 +1,26 @@
+@media print {
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+  #wrapper > .left-panel {
+    display: none;
+  }
+  #wrapper > .main-container {
+    padding: 0 !important;
+  }
+  #wrapper > .main-container > .main-panel {
+    padding: 0 !important;
+    width: 100%;
+    min-height: 0 !important;
+  }
+  #wrapper > .main-container > .main-panel > .container-fluid {
+    padding: 0 !important;
+  }
+  .breadcrumb,
+  .scrollToTop {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=print.css.map */

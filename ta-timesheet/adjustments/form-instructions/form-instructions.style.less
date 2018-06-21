@@ -1,0 +1,20 @@
+.slenderForm-instructions {
+  > div {
+    padding:12px; zoom: 1;
+    .clearfix();
+  }
+  &-buttons {
+    padding-left: 10px; display: block; float: right;
+
+    @media @deviceMobile {
+      display: inline-block; float: inherit; padding-left: 0;
+    }
+  }
+  &-text {
+    overflow: hidden; zoom: 1; margin-bottom: 40px;
+
+    @media @deviceMobile {
+      text-align: left; margin-bottom: 20px; margin-top: 10px;
+    }
+  }
+}

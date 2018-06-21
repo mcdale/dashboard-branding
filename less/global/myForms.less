@@ -1,0 +1,365 @@
+/* My Forms =================================================================== */
+/*My Form Wrapper------------------*/
+.myForms-wrapper {
+  margin-bottom:0; .box-shadow(none);
+
+  > .panel-heading {
+    margin-bottom: 40px;
+    >.myForms-links {
+      margin-bottom: 10px;
+    }
+  }
+  > .panel-body {
+    padding: 3px;
+  }
+
+  > .panel-footer{
+    border-top : none !important;
+  }
+  > .myForms-links {
+    margin-bottom: 40px;
+  }
+  @media @deviceMobile {
+    margin:0 -@grid-gutter-width/2;
+    >.panel-heading{
+      margin-bottom: 40px;
+      >.myForms-links {
+        margin-bottom: 10px;
+      }
+    }
+    > .panel-body {
+      padding-left:0; padding-right:0;
+    }
+  }
+
+}
+
+/* ------------------------------------------- */
+/*My Form Instruction------------------*/
+.myForms-instruction {
+  > div {
+    padding: 10px;
+    overflow: hidden;
+    zoom: 1;
+    .clearfix();
+
+    > span {
+      padding-left: 10px;
+      display: block;
+      float: right;
+    }
+    > div {
+      overflow: hidden;
+      zoom: 1;
+      > div {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  &-status{
+    padding: 0 10px 0 10px;
+  }
+  &-buttons {padding-left: 10px; display: block; float: right;}
+  &-text { overflow: hidden; zoom: 1; margin-bottom: 40px;}
+
+  @media @deviceMobile {
+    > div {
+      float: none;
+      > span {
+        padding: 0;
+        float: none;
+        text-align: center;
+      }
+      > div > div {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+}
+
+/* ------------------------------------------- */
+/*My Form Container------------------*/
+.myForms-container {
+  background: url('../images/myform_background.jpg') no-repeat top center; /*margin-top: -10px;*/
+
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  border: #FFF solid;
+  &:before {width: 100%;height: 100%;display: block;position: absolute;top: 0;left: 0;content: '';
+    background-color: fade(@themeMyForm_imageOverlay, 80%);
+  }
+
+  &-title{
+    padding: 15px; padding-bottom: 5px;
+  }
+
+  &-sections {
+    padding: 5px;
+    > h2 {margin-bottom: 20px;}
+    margin-bottom:30px;
+    .transition(all 0.35s 0.2s ease); .materialShadow(1);
+
+    &:first-child { margin-top:-40px; }
+    &.active { .materialShadow(4); }
+
+    &-danger {
+      background-color: lighten(@themeColour_danger, 50%); .transition(background-color 0.35s @baseTransitionEasing;);
+      > div >div > span { margin-bottom: 0; }
+    }
+
+    .form-group {
+      margin-bottom: 5px; padding: 10px 15px;
+      > label { font-size: 110%; font-weight: normal}
+    }
+  }
+
+  .myForms-navigation {
+    margin-bottom:20px;
+
+    > div {
+      box-shadow: none;
+      margin-top: 5px;
+      @media @deviceDesktopLg { right: inherit; }
+
+      > .mobile-header { display:none; }
+      > .nav-pills {
+
+        > li {
+          background-color: transparent;
+          color:#FFF;
+          border: none;
+          .box-shadow(inset 2px 0 0 #FFF);
+          margin: 0;
+          & + li {  margin-top: 1px; }
+
+          > a {
+            background-color:transparent; color:#FFF; .opacity(0.85);
+
+            &:hover {
+              background-color: transparent;
+              color: #FFF;
+              .box-shadow(inset 5px 0 0 #FFF);
+              .opacity(1);
+            }
+          }
+
+          &.active {
+            > a {
+              background-color: transparent;
+              color: #FFF;
+              border: none;
+              .box-shadow(inset 5px 0 0 #FFF);
+              .opacity(1);
+              .transition-delay(0.175 s);
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  .myForms-mandatory {
+    font-size: 8px;
+    color: @themeColour_danger;
+    margin-right: 2px;
+  }
+
+  .myForms-date {
+    width: 50%;
+
+    @media @deviceMobile {
+      width: 100%;
+    }
+  }
+
+  @media @deviceMobile {
+    padding-left:@grid-gutter-width/2; padding-right:@grid-gutter-width/2;
+
+    & > .row {
+      display:flex; flex-direction:column-reverse;
+      > div { margin-bottom:0; float:none; }
+    }
+
+    .myForms-navigation > div {
+      margin-top:0; .opacity(0); .transition(@baseTransition);
+      &:before {
+        width:100vw; height:100vh; display:block; position:absolute; background-color:@themeColour_BGSite;
+        content:''; pointer-events:none; .opacity(0); .transition(@baseTransition);
+      }
+
+      > .mobile-header {
+        max-height:0; padding:0 15px; display:block; position:relative; z-index:1; pointer-events:none;
+        background-color:@themeColour_BGContent; .materialShadow(2);
+
+        /* Mobile Nav Title and Number */
+        > div {
+          line-height:@headerHeight; overflow:hidden; zoom:1;
+          > small { margin-right:10px; display:block; float:left; color:@text-muted; }
+          > span {
+            display:block; overflow:hidden; zoom:1; margin-right: 40px;
+            color:@brand-primary; font-size:1.35em; .text-overflow();
+          }
+        }
+
+        /* Mobile Nav Toggle */
+        > a {
+          width:@headerHeight; height:@headerHeight; display:block; position:absolute; top:0; right:0;
+
+          .showHideToggle {
+            @showHideAnimation: ~"all 0.3s ease, background 0.3s ease";
+
+            width:4px; height:4px; margin:-2px 0 0 -2px; position:absolute; top:50%; left:50%; background:fade(@brand-primary,100%);
+            .border-radius(10px); .transition(@showHideAnimation);
+
+            &:before, &:after {
+              width:100%; height:100%; display:block; position:absolute; left:0; background:fade(@brand-primary,100%); content:'';
+              .border-radius(inherit); .transition(@showHideAnimation);
+            }
+            &:before { .translate(0,-8px); }
+            &:after {.translate(0,8px); }
+          }
+        }
+      }
+
+      > .nav-pills {
+        width:80%; max-width:@leftNavWidth; height:calc(~"100vh - @{headerHeight}");
+        position:absolute; top:@headerHeight; right:0; background:#FFF;
+        .translate(100%,0); .transition(~"all 0.5s cubic-bezier(0.23, 1, 0.32, 1)"); .customWebkitScrollbar();
+
+        > li {
+          .box-shadow(none);
+
+          > a {
+            color:@brand-primary;
+            &:hover { color:@brand-primary; .box-shadow(inset 5px 0 0 @brand-primary); }
+          }
+
+          &.active > a { color:@brand-primary; .box-shadow(inset 5px 0 0 @brand-primary); }
+        }
+      }
+
+      /* Nav Opened */
+      &.navOpen {
+        &:before { .opacity(0.5); }
+
+        > .mobile-header {
+          > a .showHideToggle {
+            width:50%; margin:0; left:@headerHeight/4; background:fade(@brand-primary,0%);
+            .border-radius(0); .rotate(-180deg);
+            &:before { .translate(0,0); .rotate(45deg); }
+            &:after { .translate(0,0); .rotate(-45deg); }
+          }
+        }
+
+        > .nav-pills { .translate(0,0); .materialShadow(4); }
+      }
+
+      /* On Affix */
+      &.affix {
+        .opacity(1);
+        > .mobile-header { max-height:@headerHeight; pointer-events:initial; }
+      }
+    }
+
+    .myForms-footer-toggle{
+      > a {
+        width:@headerHeight; height:@headerHeight; display:block; position:absolute; top:0; right:0;
+
+        .showHideToggle {
+          @showHideAnimation: ~"all 0.3s ease, background 0.3s ease";
+
+          width:4px; height:4px; margin:-2px 0 0 -2px; position:absolute; top:50%; left:50%; background:fade(@brand-primary,100%);
+          .border-radius(10px); .transition(@showHideAnimation);
+
+          &:before, &:after {
+            width:100%; height:100%; display:block; position:absolute; left:0; background:fade(@brand-primary,100%); content:'';
+            .border-radius(inherit); .transition(@showHideAnimation);
+          }
+          &:before { .translate(0,-8px); }
+          &:after {.translate(0,8px); }
+        }
+      }
+    }
+  }
+
+  .radio, .checkbox { margin:0; }
+  .checkbox>input+label{ color:@themeColour_accent}
+  .radio+.radio, .checkbox+.checkbox { margin-top:10px; }
+  .myForms-pill{
+    padding: 6px 12px;
+  }
+  .help-block{
+    margin:5px 0 0;
+  }
+
+}
+
+/* TODO: BAD PRACTICE - THIS IS A GLOBAL OVERRIDE.  Need to remove */
+.panel-footer {
+   background: #fff;
+   border-top: 2px solid #fff;
+ }
+
+.myForms-footer {
+  border-top: none!important;
+
+}
+/* BUTTONS BAR ------------------------------- */
+.myForms-footerButtons {
+  padding:5px 15px; display:flex; flex-direction:row-reverse; justify-content:space-between;
+
+  & > &-left {
+    .btn {
+      float:left;
+      + .btn { margin-left:10px; }
+    }
+  }
+  & > &-right {
+    .btn {
+      float:right;
+      + .btn { margin-right:10px; }
+    }
+  }
+}
+
+/*.myForms-footer-buttons-right{ .btn{
+      margin-right:10px;
+    }
+}
+.myForms-footer-buttons-left{
+      .btn{
+        margin-left:10px;
+      }
+ }*/
+/* ------------------------------------------- */
+
+
+
+.myForm-field-label {
+  font-size: 110%; font-weight: normal;
+}
+.myForms-footer-row{
+  padding-right: 5px;
+}
+
+/* TODO: BAD PRACTICE - This will override in other parts of the application */
+/*.slenderForm-bottomBar {
+  > div {
+
+      //.animation(none); .transition(none);
+      &.affix {
+        .panel {
+          box-shadow: 0 1px 0px 0px rgba(0,0,0,0.1), 0 0px 1px rgba(0,0,0,0.18)!important;
+        }
+      }
+    }
+
+
+}*/
+
+/* ------------------------------------------- */
+/* ===================================================================================== */

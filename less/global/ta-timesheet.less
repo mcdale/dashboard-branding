@@ -1,0 +1,97 @@
+/* TIME AND ATTENDANCE ================================================================= */
+@import (less) "../../ta-timesheet/errors/error-popup.style.less";
+
+/* COMPONENT WRAPPER ------------------------- */
+nga {
+	&-employee-panel, &-weekly-employee-panel,
+	&-current-date, &-weekly-current-date,
+	&-roster,
+	&-weekly-overview,
+	&-table-header
+	{ display:block; }
+}
+/* ------------------------------------------- */
+
+/* LOADING ----------------------------------- */
+.weekly-timesheet__spinner {
+	display:block; position:absolute; top:0; right:0; bottom:0; left:0; z-index:9999;
+	background-color:@themeLogin_contentBG !important;
+}
+
+// TODO: Magic number, will calculate actual value in JavaScript
+.weekly-timesheet-loader { margin-top:25%; }
+/* ------------------------------------------- */
+
+/* TA HEADER FILTERS ------------------------- */
+.taTimesheet-header-links {
+	.clearfix();
+
+	> ul {
+		&, > li { margin:0; padding:0; display:block; list-style:none; }
+
+		@media @deviceTabletDesktop {
+			float:right;
+			> li { padding:0 0 0 10px; float:inherit; }
+
+			&.header-links-back {
+				float:left;
+				> li { padding:0 10px 0 0; }
+			}
+		}
+	}
+
+	> small {
+		margin:10px 0 -5px; display:block; float:right; clear:both; color:@text-muted;
+		> a:not(:hover) { color:inherit; text-decoration:underline; }
+	}
+
+	@media @deviceMobile {
+		overflow:hidden; zoom:1;
+
+		> ul {
+			& + ul { margin-top:5px; }
+			> li + li > .btn { margin-top:5px; }
+
+			&.header-links-primary, &.header-links-secondary {
+				.btn { width:100%; display:block; }
+			}
+
+			&.header-links-secondary, &.header-links-back {
+				.btn { padding:@padding-small-vertical @padding-small-horizontal; font-size:@font-sizeEm-sm; }
+			}
+
+			&.header-links-back:not(:first-child) {
+				margin-top:15px; float:left;
+				& + small {
+					min-height:@formControl_heightSm; line-height:1.3; margin:15px 0 0; padding-left:10px;
+					overflow:hidden; zoom:1;
+				}
+			}
+		}
+
+		> small { margin:10px 0 0; display:block; float:none; clear:none; text-align:right; }
+	}
+}
+/* ------------------------------------------- */
+
+/* WEEKLY ------------------------------------ */
+@import (less) "../../ta-timesheet/weekly/weekly-timesheet.style.less";
+@import (less) "../../ta-timesheet/component/weekly-authorisation/weekly-authorisation.style.less";
+@import (less) "../../ta-timesheet/component/weekly-summary/weekly-summary.style.less";
+/* ------------------------------------------- */
+
+/* DAILY ------------------------------------- */
+@import (less) "../../ta-timesheet/daily/daily-timesheet.less";
+@import (less) "../../ta-timesheet/component/analysis-table/analysis-table.style.less";
+/* ------------------------------------------- */
+
+/* ADJUSTMENTS ------------------------------- */
+@import (less) "../../ta-timesheet/adjustments/ta-adjustments.style.less";
+@import (less) "../../ta-timesheet/adjustments/form-instructions/form-instructions.style.less";
+@import (less) "../../ta-timesheet/adjustments/form-content/adjustments-form.style.less";
+@import (less) "../../ta-timesheet/adjustments/form-content/adjustments-fields.style.less";
+//@import (less) "../../ta-timesheet/adjustments/bottom-bar/bottom-bar.style.less";
+/* ------------------------------------------- */
+/* ===================================================================================== */
+
+

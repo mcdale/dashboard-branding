@@ -1,0 +1,620 @@
+/* SEARCH RESULTS BASE ================================================================= */
+/* EMPLOYEE SEARCH RESULTS ------------------- */
+.searchResults-employeeResults .person {
+  .highVis_content();
+
+  > div {
+    .noData {
+      &, > .fa { color:@highVis_textMuted !important; }
+    }
+
+    /* Contact info */
+    .infoContact {
+      > a, > span {
+        display:inline-block; float:left; clear:left;
+        > .fa { color:@highVis_primary; }
+      }
+      > a { .highVis_link(#FFF, @highVis_primary); }
+    }
+  }
+
+  @media @deviceMobile {
+    > div .infoContact {
+      > a, > span { width:1.8em; height:1.8em; line-height:1.8em; border:1px solid @highVis_primary !important; }
+    }
+  }
+}
+/* ------------------------------------------- */
+
+/* LOGIN PAGE EMPLOYEE SEARCH ---------------- */
+.login {
+  .searchResults-header {
+    color:inherit;
+
+    > div > div {
+      .perPageDropdown {
+        background-color:@highVis_BGComponent; color:inherit;
+        &:hover, &:focus { border-color:#FFF; background-color:#000; }
+      }
+    }
+  }
+
+  .searchResults-employeeResults {
+    .person {
+      .highVis_content(); .box-shadow(~"none !important");
+
+      > div {
+        .infoRole h5 a { color:@highVis_primary; }
+
+        .infoContact {
+          > a, > span {
+            > .fa { color:@highVis_primary; }
+          }
+          > a { .highVis_link(#FFF, @highVis_primary); }
+        }
+      }
+    }
+  }
+
+  .searchResults-header, .searchResults-footer {
+    .pagination > li {
+      & > a {
+        &, &:hover { background-color:@highVis_BGComponent; border-color:@highVis_primary; color:@highVis_primary; }
+      }
+      &.active > a {
+        background-color:@highVis_primary; border-color:@highVis_primary; color:#000;
+      }
+      &.disabled > a, &.disabled > a:hover {
+        background-color:#000; border-color:#FFF; color:#CCC; .opacity(0.65);
+      }
+    }
+  }
+}
+/* ------------------------------------------- */
+/* ===================================================================================== */
+
+/* FORM HISTORY ======================================================================== */
+/* FORM STATUS ------------------------------- */
+.formStatus {
+  &-OPEN        { color:@highVis_primary }
+  &-AUTHED      { color:@highVis_success }
+  &-SUBMIT      { color:@highVis_warning; }
+  &-REJECT      { color:@highVis_danger; }
+  &-WDRAWN      { color:@highVis_info; }
+  &-MIXED       { color:#F0F; }
+
+  &&-pill {
+    background:@highVis_primary; color:#000; font-weight:bold; .transition(@baseTransition);
+
+    &.formStatus-OPEN     { background:@highVis_primary; }
+    &.formStatus-AUTHED   { background:@highVis_success; }
+    &.formStatus-SUBMIT   { background:@highVis_warning; }
+    &.formStatus-REJECT   { background:@highVis_danger; }
+    &.formStatus-WDRAWN   { background:@highVis_info; }
+    &.formStatus-MIXED    { background:#F0F; }
+
+    a:hover &, a:focus & {
+      &.formStatus-OPEN     { .highVis_outlineShadow(2px, @highVis_primary); }
+      &.formStatus-AUTHED   { .highVis_outlineShadow(2px, @highVis_success); }
+      &.formStatus-SUBMIT   { .highVis_outlineShadow(2px, @highVis_warning); }
+      &.formStatus-REJECT   { .highVis_outlineShadow(2px, @highVis_danger); }
+      &.formStatus-WDRAWN   { .highVis_outlineShadow(2px, @highVis_info); }
+      &.formStatus-MIXED    { .highVis_outlineShadow(2px, #F0F);  }
+    }
+  }
+}
+/* ------------------------------------------- */
+
+/* FORM HISTORY RESULTS ---------------------- */
+.formHistoryResults {
+  .highVis_content();
+
+  .item {
+    background-color:inherit; border-top-color:@highVis_tableBorder; outline:2px solid transparent; outline-offset:-6px; font-size:100%;
+    &:nth-child(even) { background-color:@highVis_tableOddBG; }
+    &:before, &:after { background:@highVis_primary; }
+
+    .info-label { color:@highVis_primary; }
+
+    > .item-row {
+      .info-toggle {
+        border-bottom:none; border-left-color:@highVis_tableBorder; outline-offset:-4px; color:@highVis_primary;
+        &:focus { outline-style:dashed; outline-offset:-4px; }
+        &:hover { outline:2px solid @highVis_primary; outline-offset:-6px; color:@highVis_primary; }
+      }
+    }
+
+    > .item-info {
+      &:before { background:@highVis_tableBorder; }
+      .info-list > li > span { color:@highVis_primary; }
+    }
+
+    &.active {
+      border-color:#FFF; outline-color:#FFF; outline-offset:0; .box-shadow(none);
+      > .item-row  .info-toggle { border-left-color:@highVis_tableBorder; color:@highVis_primary; }
+      > .item-info:before { background:@highVis_tableBorder; }
+    }
+  }
+
+  .item-header {
+    background:inherit; border-bottom-color:#FFF;
+    a {
+      .highVis_link(#FFF,@highVis_primary);
+      > .fa { color:@highVis_primary; }
+    }
+  }
+}
+/* ------------------------------------------- */
+
+/* AUTH PROGRESS STEPS ----------------------- */
+.authProgress-steps {
+  &:before { background-color:#666; }
+  > i {  background-color:@highVis_success; }
+
+  > div {
+    > .btn {
+      .actionState(@color) {
+        background:@color; border-color:@color; color:#000;
+
+        &, .no-touch & {
+          &:hover, &:focus { .highVis_outlineShadow(2px, #000, inset); }
+          &:active { .highVis_outlineShadow(3px, #000, inset); }
+          /*&:hover { outline:none; .highVis_outlineShadow(1px, @color); }
+          &:focus { outline:none; .highVis_outlineShadow(2px, @color); }*/
+        }
+        & + span { background-color:@color; }
+      }
+
+      &.btn-primary { .actionState(@highVis_primary); }
+      &.btn-success { .actionState(@highVis_success); }
+      &.btn-warning { .actionState(@highVis_warning); }
+      &.btn-danger  { .actionState(@highVis_danger); }
+    }
+    > span.btn.btn-primary {
+      .no-touch &:hover { background:@highVis_primary; .box-shadow(none); }
+    }
+  }
+}
+/* ------------------------------------------- */
+
+/* AUTH REJECT PAGE -------------------------- */
+/* Auth Reject List */
+.authReject-list {
+  > .row {
+    .narrowMargin(5px);
+    & + .row { margin-top:5px; }
+    label {
+      margin-bottom:0; font-size:inherit; /*text-align:right;
+      @media @deviceMobile { text-align:left; }*/
+    }
+  }
+}
+
+/* Auth Reject Notes */
+.authReject-notes {
+  .authNoteState(@color){
+    &:before, &:after { color:@color; }
+    h3, .h3, h4, .h4, h5, .h5 { color:@color; }
+  }
+  &-success { .authNoteState(@highVis_success); }
+  &-danger { .authNoteState(@highVis_danger); }
+}
+/* ------------------------------------------- */
+/* ===================================================================================== */
+
+/* EXPENSES ============================================================================ */
+/* EXPENSE HEADER ---------------------------- */
+.expense-header {
+  .panel-heading h2 small { color:#FFF; }
+}
+/* ------------------------------------------- */
+
+/* EXPENSE CLAIM FORM ------------------------ */
+.expense-claimForm {
+  &-wrapper .overlayLink {
+    #gradient > .vertical(rgba(0,0,0,0.85); #000; 50%);
+  }
+}
+/* ------------------------------------------- */
+
+/* ATTACHMENT LIST --------------------------- */
+.expenses-attachments > li {
+  &:nth-of-type(odd) { background-color:#F0F0F0; }
+  > div > span { color:@highVis_primary; }
+}
+/* ------------------------------------------- */
+
+/* EXPENSE PANEL ----------------------------- */
+.expense-panel, .formSubmit-panel {
+  .panel-heading .panel-title {
+    .clearfix();
+
+    a {
+      border-bottom:none;
+      > span {
+        &:not(.formStatus) { border-bottom:2px dotted @highVis_primary; }
+
+        @media @deviceMobile {
+          float:left;
+          &.totalValue { clear:left; }
+        }
+      }
+
+      &:hover {
+        > span:not(.formStatus) { border-bottom-style:solid; }
+      }
+      &:focus {
+        > span:not(.formStatus) { border-bottom-width:0; outline:2px dashed @highVis_primary; }
+      }
+    }
+  }
+
+  .panel-body {
+    /* Expense Cost Centre Name */
+    .expenseLines-costCentreName {
+      strong { color:@highVis_primary; }
+      @media @deviceMobile { color:@highVis_primary; }
+    }
+
+    /* Expenses Responsive Table */
+    .row {
+      .expenseLines-table.responsiveTableCollapse {
+        .table-row > .item-collapse > div > .text-center {
+          &.text-warning, &.text-danger { font-size:1.1em; font-weight:bold; }
+        }
+
+        .expenseLines-table-total {
+          &, > div { border-color:#FFF; }
+        }
+      }
+    }
+
+    /* Expenses Info List */
+    .expense-infoList > li > span { color:@highVis_primary; }
+
+    .expense-collapseInfo strong { color:@highVis_primary; }
+  }
+}
+/* ------------------------------------------- */
+
+/* EXPENSE BASKET PANEL ---------------------- */
+.basket-panel {
+  @media @deviceMobile {
+    &.affix { .box-shadow(0 1px 0 #FFF); }
+  }
+
+  .panel-heading > .panel-title {
+    color:@highVis_primary;
+
+    > a {
+      border-bottom:none;
+      > .mobile-basket-title { border-bottom:2px dotted @highVis_primary; }
+
+      &:hover > .mobile-basket-title { border-bottom-style:solid; }
+      &:focus > .mobile-basket-title { border-bottom-width:0; }
+    }
+  }
+
+  .panel-collapse {
+    .panel-body > .basket-totalValue { font-weight:bold; }
+  }
+}
+/* ------------------------------------------- */
+/* ===================================================================================== */
+
+/* TEAM SELECTOR TALENT VIEW =========================================================== */
+/* TEAM SELECTOR TAB COLLAPSE ---------------- */
+.teamSelector-tabCollapse {
+  &:after {
+    border:1px solid #FFF; border-top-width:0;
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.35) 0%, rgba(0,0,0,1) 85%, rgba(0,0,0,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.35) 0%,rgba(0,0,0,1) 85%,rgba(0,0,0,1) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%,rgba(0,0,0,1) 85%,rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40000000', endColorstr='#000000',GradientType=0 );
+
+    .no-cssgradients & { background:#000; }
+  }
+
+  & + .btn {
+    border-color:#FFF; border-top-color:transparent; font-size:1em;
+    &:hover, &:focus {
+      background:@highVis_BGComponent; border-color:@highVis_primary; color:@highVis_primary;
+      outline:1px solid @highVis_primary; outline-offset:0; .transition-duration(@highVis_transitionSpeed);
+    }
+    &:focus { outline-width:2px; }
+    &:active { background:#000; border-color:@highVis_primary; outline:1px solid @highVis_primary; color:@highVis_primary; }
+  }
+}
+/* ------------------------------------------- */
+
+/* ALPHABET FILTER --------------------------- */
+.alphabetFilter {
+  @media @deviceMobile {
+    .scrollShadows {
+      margin:0 -14px;
+      .btn-group { margin-bottom:-14px; padding-bottom:14px; }
+    }
+  }
+}
+/* ------------------------------------------- */
+
+/* PEOPLE LIST ------------------------------- */
+.peopleList {
+  /* Person Item */
+  .person {
+    .highVis_content(); .transition-duration(@highVis_transitionSpeed);
+    &:before, &:after { background:@highVis_primary; }
+
+    &.active {
+      border-color:@highVis_primary; outline:4px solid @highVis_primary; outline-offset:-4px; .box-shadow(none);.translate(0,0);
+      &:before, &:after { width:4px; }
+
+      > span { background:fade(@highVis_primary,8.5%); }
+    }
+
+    > div {
+      background:transparent;
+
+      /* Profile Info */
+      > div {
+        /* Contact info */
+        .infoContact {
+          font-size:95%;
+
+          > a, > span {
+            max-width:100%; float:left; clear:left; .highVis_link(#FFF, @highVis_primary);
+            > .fa { color:@highVis_primary; }
+
+            @media @deviceMobile { width:1.8em; height:1.8em; line-height:1.8em; clear:none; border:1px solid @highVis_primary !important; }
+          }
+        }
+
+        /* Team Selector Talent Info */
+        .infoTalent {
+          &-bars label, &-dropdowns { font-size:0.85em; }
+          &-dropdowns select.form-control {
+            &, &:hover { outline-offset:-2px; }
+            &:focus { outline-offset:-3px; }
+          }
+        }
+      }
+    }
+
+    > span {
+      padding:14px; background:@highVis_tableOddBG; border-left-color:@highVis_tableBorder;
+      @media @deviceMobile { background:@highVis_tableOddBG; border:1px solid #FFF; border-top-color:@highVis_tableBorder; }
+    }
+  }
+}
+/* ------------------------------------------- */
+
+/* TALENT 9BOX ------------------------------- */
+.talent-9box {
+  padding-bottom:60px; padding-left:55px; background:@highVis_BGSite;
+
+  // Axis X and Y
+  > .axis-x {
+    > div {
+      background: @highVis_danger;
+      background: -moz-linear-gradient(left, @highVis_danger 0%, @highVis_warning 40%, @highVis_warning 60%, @highVis_success 100%);
+      background: -webkit-gradient(linear, left top, right top, color-stop(0%,@highVis_danger), color-stop(40%,@highVis_warning), color-stop(60%,@highVis_warning), color-stop(100%,@highVis_success));
+      background: -webkit-linear-gradient(left, @highVis_danger 0%,@highVis_warning 40%,@highVis_warning 60%,@highVis_success 100%);
+      background: -o-linear-gradient(left, @highVis_danger 0%,@highVis_warning 40%,@highVis_warning 60%,@highVis_success 100%);
+      background: -ms-linear-gradient(left, @highVis_danger 0%,@highVis_warning 40%,@highVis_warning 60%,@highVis_success 100%);
+      background: linear-gradient(to right, @highVis_danger 0%,@highVis_warning 40%,@highVis_warning 60%,@highVis_success 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@{highVis_danger}', endColorstr='@{highVis_success}',GradientType=1 );
+
+      > span {
+        font-size:0.75em; font-style:normal;
+        &.low     { color:@highVis_danger; }
+        &.medium  { color:@highVis_warning; }
+        &.high    { color:@highVis_success; }
+      }
+    }
+  }
+  > .axis-y {
+    > div {
+      background: @highVis_success;
+      background: -moz-linear-gradient(top, @highVis_success 0%, @highVis_warning 40%, @highVis_warning 60%, @highVis_danger 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@highVis_success), color-stop(40%,@highVis_warning), color-stop(60%,@highVis_warning), color-stop(100%,@highVis_danger));
+      background: -webkit-linear-gradient(top, @highVis_success 0%,@highVis_warning 40%,@highVis_warning 60%,@highVis_danger 100%);
+      background: -o-linear-gradient(top, @highVis_success 0%,@highVis_warning 40%,@highVis_warning 60%,@highVis_danger 100%);
+      background: -ms-linear-gradient(top, @highVis_success 0%,@highVis_warning 40%,@highVis_warning 60%,@highVis_danger 100%);
+      background: linear-gradient(to bottom, @highVis_success 0%,@highVis_warning 40%,@highVis_warning 60%,@highVis_danger 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@{highVis_success}', endColorstr='@{highVis_danger}',GradientType=0 );
+
+      > span {
+        left:13px; font-size:0.75em; font-style:normal;
+        &.low     { color:@highVis_danger; }
+        &.medium  { color:@highVis_warning; }
+        &.high    { left:auto; right:-13px; color:@highVis_success; }
+      }
+    }
+  }
+
+  // Links
+  > div > div {
+    .btn.btn-default {
+      color:#FFF;
+      &:hover { color:@highVis_primary; }
+    }
+
+    .btn-primary.active {
+      &:hover, &:focus { outline-color:#FFF; }
+    }
+  }
+}
+
+.talent-9box-miniGrid {
+  > span {
+    &:before { .opacity(0.65); }
+    &:after { background:@highVis_primary; }
+  }
+}
+/* ------------------------------------------- */
+/* ===================================================================================== */
+
+/* TEAM SELECTOR - EMPLOYEE PROFILE ==================================================== */
+/* PROFILE BLOCK ----------------------------- */
+.employeeProfile-profileInfo {
+  .highVis_content(0px);
+
+  > span {background:none; background-size:cover; border:1px solid #FFF; border-width:0 0 1px;
+    &:before { background-color:#000;}
+    @media @deviceTabletDesktopMd {border-width:0 1px 0 0;}
+    .employeeDetails.modal-dialog .modal-body & {
+      @media @deviceTabletDesktop {border-width:0 1px 0 0;}
+    }
+  }
+  > nga-photo:before { background-color:fade(darken(@highVis_primary,10%),80%); }
+  > div { font-size:inherit; }
+
+  .profileInfo-basicDetails > div > span:first-child { color:@highVis_primary; }
+}
+/* ------------------------------------------- */
+
+/* PROFILE TABLE CONTENT --------------------- */
+.employeeProfile-tableContent.row {
+  & + & { border-top-color:@highVis_tableBorder; }
+}
+
+.responsiveTableCollapse {
+  .table-header:first-child ~ .table-row {
+    &:nth-child(odd) .employeeProfile-tableContent.row  { background-color:@highVis_tableOddBG; }
+    &:nth-child(even) .employeeProfile-tableContent.row { background-color:#000; }
+  }
+
+  .table-row {
+    &:nth-child(odd) .employeeProfile-tableContent.row  { background:#000; }
+    &:nth-child(even) .employeeProfile-tableContent.row { background:@highVis_tableOddBG; }
+  }
+}
+/* ------------------------------------------- */
+
+/* EMPLOYEE CARD ----------------------------- */
+.employeeProfile-card {
+  border:none; .highVis_content();
+
+  a.text-primary {
+    &:hover, &:focus { color:@highVis_primary; text-decoration:none; }
+  }
+  &-bars > .row span { color:@highVis_primary; }
+}
+/* ------------------------------------------- */
+/* ===================================================================================== */
+
+/* TIMESHEETS - QUICK ENTRY ============================================================ */
+/* ALERT INFO -------------------------------- */
+.quickAtt-alertInfo {
+  + .quickAtt-employeeList {
+    &, .panel-group &.panel-body { border-top-width:2px;  }
+    &:after { background:fade(@highVis_BGContent,85%); }
+  }
+}
+/* ------------------------------------------- */
+
+/* AFFIX FLOAT PANEL ------------------------- */
+.quickAtt-floatEntries {
+  .panel-heading {
+    > .row > a { border-bottom-width:0; }
+
+    .panel-title {
+      > span { color:@highVis_primary; }
+
+      @media @deviceMobTabDeskMd {
+        > ul > li {
+          color:#FFF;
+          > .fa { color:@highVis_primary; }
+        }
+      }
+    }
+  }
+
+  /* Entry List */
+  .entryList > div {
+    & + div { border-top-color:@highVis_hrBreak; }
+
+    > a {
+      border-bottom-width:0;
+      > span { border-bottom:2px dotted; }
+      > small { color:@highVis_textMuted; }
+
+      &:hover, &:focus {
+        color:@highVis_primary;
+        > span { border-bottom:2px solid; text-decoration:none; }
+      }
+
+      &.active {
+        &, &:before { color:@highVis_primary; }
+      }
+    }
+  }
+}
+/* ------------------------------------------- */
+
+/* SELECTED EMPLOYEE LIST -------------------- */
+.quickAtt-employeeList {
+  /* Base Person Item Block */
+  .person-item {
+    > div {
+      > div { .siteFontSize(16px); }
+      .fields .quickAtt-CC-wrapper > small { color:@highVis_textMuted; }
+      .disabled-message { color:@highVis_textMuted; }
+    }
+
+    &.disabled-employee .media {
+      h4, .text-muted { color:@highVis_textMuted; }
+    }
+  }
+
+  /* Table View */
+  &.table-view {
+    border-width:2px 0 0;
+    /*@borderColour:@highVis_BGContent;
+    border-bottom-color:@borderColour; border-left-color:@borderColour; border-right-color:@borderColour;*/
+
+    .person-item {
+      border-color:@highVis_BGSite; background-color:@highVis_BGContent;
+      & + .person-item { border-top-width:10px; }
+
+      > div {
+        .highVis_outlineShadow(1px, fade(#FFF,25%), 'inset'); .transition(box-shadow 0.2s ease);
+        &:hover, &:focus { .highVis_outlineShadow(2px, @highVis_primary, 'inset'); }
+
+        > div.media { border-right-color:fade(#FFF,25%); }
+        > div.cells-wrapper .fields > div > div > div + div { border-left-color:@highVis_hrBreak; }
+      }
+
+      &.disabled-employee {
+        background-color:@highVis_BGSite;
+        > div > .media { border-right-color:@highVis_hrBreak; }
+      }
+    }
+
+    .table-header {
+      background-color:@highVis_BGContent; .box-shadow(0 1px 0 #333);
+      > div > div > div {
+        color:inherit; .siteFontSize(15px;);
+        & + div { border-left-color:@highVis_hrBreak; }
+      }
+    }
+
+    .content-wrapper {
+      max-height:none; background-color:@highVis_BGSite;
+    }
+  }
+}
+/* ------------------------------------------- */
+/* ===================================================================================== */
+/* My Forms =================================================================== */
+
+
+.myForm-container{
+
+
+  &:before { background-color:#000;}
+  @media @deviceTabletDesktopMd {border-width:0 1px 0 0;}
+
+}
+
+/* ===================================================================================== */

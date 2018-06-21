@@ -1,0 +1,390 @@
+/* BASE STYLES ========================================================================= */
+* { -webkit-font-smoothing:antialiased; /*text-rendering:optimizeLegibility;*/ }
+
+html { height:100%; background:@themeColour_BGSite; -ms-overflow-style:scrollbar; }
+body { background:inherit; overflow-y:scroll; .siteFontSize(); }
+
+a {
+  .transition(@baseTransition);
+  &[ng-show], &[ng-if] { .transition-property(~"color, background, border, opacity") }
+  &[ng-click], &[nga-open-new-window] { cursor:pointer; }
+  &.na-animate { .transition(@baseTransition); }
+
+  &[disabled], &.disabled { pointer-events:none; cursor:@cursor-disabled; }
+}
+
+iframe { margin:0; padding:0; border:none; -webkit-overflow-scrolling:touch; }
+
+/* Support Page Branding Version Indicator */
+.dash-branding-type:after { content:@brandingType; }
+
+/* LOADERS ----------------------------------- */
+/* Pace Loader */
+.pace {
+  & &-progress { height:3px; background:@themeColour_pagerLoader; .transition(~"width 1s"); }
+  &-active &-progress {  .translate(0, 0); .transition(~"width 1s, transform 0.5s 0s ease-out"); }
+  &-inactive { display:block; }
+  &-inactive &-progress { .translate(0, -100%); .transition(~"width 1s, transform 0.6s 0.75s ease-out"); }
+}
+
+/* Content Loader */
+.contentLoad { color:@themeColour_loadingSpinner; }
+
+/* Site Loader */
+.siteLoad {
+  .square(100px); margin:-50px 0 0 -50px; display:block; position:fixed; top:50%; left:50%; background:#FFF;
+  color:@themeColour_loadingSpinner; font-size:50px; line-height:100px; text-align:center; .border-radius(100%);
+}
+.cssLoad { display:none; }
+
+/* Site Loading Cloak */
+.cloak {
+  & when not (@theme_isControlGroupBranding = "true") {
+    &-css { display:block; visibility:visible; }
+  }
+
+  & when (@theme_isControlGroupBranding = "true") {
+    &-control-group { display:block; visibility:visible; }
+  }
+}
+/* ------------------------------------------- */
+
+/* DEEPDIVE IFRAMES -------------------------- */
+.iframe-wrapper {
+  overflow-x:auto; -webkit-overflow-scrolling:touch;
+  @media print { overflow-x:visible; }
+}
+
+#deepdive {
+  @DD_lineHeightSpace:      (@themeText_fontSize * 0.9) * @line-height-base;
+  @DD_lineHeightSpace-XLg:  ((@themeText_fontSize + 2) * 0.9) * @line-height-base;
+
+  min-height: ~"calc(100vh - @{mdMinHeight} - 65px - @{DD_lineHeightSpace}) !important"; display:block;
+  @media @deviceDesktopXLg    { min-height:~"calc(100vh - @{mdMinHeight} - 65px - @{DD_lineHeightSpace-XLg}) !important"; }
+  @media @deviceMobileTablet  { min-height:~"calc(100vh - @{smMinHeight} - 55px - @{DD_lineHeightSpace}) !important"; }
+
+  /* IE -  Overrides to have scroll within the iframe and not the outer page */
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {min-width:inherit !important; height:auto !important;}
+}
+/* ------------------------------------------- */
+/* ===================================================================================== */
+
+/* DASHBOARD STRUCTURE ================================================================= */
+#wrapper {
+  > .left-panel {
+    width:20%; max-width:@leftNavWidth; position:fixed; top:@headerHeight; bottom:@footerHeight; left:0; z-index:1030;
+    .translate(0%,0); .customWebkitScrollbar(6px, @themeLeftNav_textColour);
+
+    @panelTransition: ~"transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)";
+    -webkit-transition:~"-webkit-@{panelTransition}"; -moz-transition:~"-moz-@{panelTransition}";
+    -o-transition:~"-o-@{panelTransition}"; -ms-transition:~"-ms-@{panelTransition}"; transition:@panelTransition;
+
+    @media @deviceMobileTablet { .translate(-@leftNavWidth,0); }
+    @media @deviceTablet { width:@leftNavWidth; top:@headerHeight; bottom:@footerHeight; }
+    @media @deviceMobile { width:80%; top:@headerHeight; bottom:0; }
+  }
+
+  > .main-container {
+    padding:@headerHeight 0 @footerHeight;
+    @media @deviceMobile { padding:@headerHeight*2 0 0; }
+    .clearfix(); .transition(~"all 0.5s cubic-bezier(0.23, 1, 0.32, 1)");
+
+    &:before {
+      width:20%; max-width:@leftNavWidth; height:1px; display:block; float:left; content:'';
+      @media @deviceMobileTablet { display:none; }
+    }
+
+    > .main-panel {
+      width:auto; min-height:~"calc(100vh - @{mdMinHeight})"; padding:20px 0; position:relative; float:left;
+      > .container-fluid { padding:0 20px; position:relative;/* z-index:1;*/ }
+
+      .animate-main-content {
+        &.ng-animate { .transition(all 0.8s 0.2s ease); }
+        &.ng-enter { .opacity(0); }
+        &.ng-enter-active { .opacity(1); }
+        &.ng-leave { display:none; .transition(none); }
+      }
+      .main-content:focus, h1[tabindex]:focus { outline:none; }
+
+      /* Adaptable Left Nav Panel */
+      @media (min-width: @screen-md) and (max-width: (@screen-lg-min + @leftNavWidth)) { width:80%; }
+      @media (min-width: (@screen-lg + @leftNavWidth)) { width:~"calc(100% - @{leftNavWidth})"; }
+
+      /* Responsive Structure */
+      @media @deviceDesktopLg {
+        > .container-fluid { padding-left:25px; padding-right:25px; }
+      }
+      @media @deviceMobileTablet {
+        padding:@grid-gutter-width/2 0; float:none;
+        &:after {
+          width:0; height:0; display:block; position:absolute; top:0; bottom:0; left:0; right:0; z-index:1029;
+          background:fade(@themeColour_BGSite,60%); content:'';
+          .opacity(0); .transition(~"opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s");
+        }
+        > .container-fluid { padding:0 @grid-gutter-width/2;}
+      }
+      @media @deviceMobile { min-height:~"calc(100vh - @{smMinHeight}) !important"; }
+    }
+  }
+
+  // this is to redraw the screen cleanly for HRWEBAUTH mode
+  &.operator {
+    > .main-container {
+      padding:0;
+      &:before { display:none; }
+      > .main-panel { width:100%; min-height:initial; padding:0; }
+    }
+  }
+}
+
+/* Show Nav Toggle */
+@media @deviceMobileTablet {
+  .showNav {
+     position:relative; overflow:hidden;
+
+    #wrapper {
+      > .left-panel { .translate(0%,0); .materialShadow(4); }
+
+      > .main-container > .main-panel {
+        &:after { width:100%; height:100%; .opacity(1); .transition(opacity 0.5s); }
+        > .container, > .container-fluid { pointer-events:none; overflow:hidden; }
+      }
+    }
+  }
+}
+
+/* Skip To Content */
+.skipToContent {
+  padding:10px; display:block; position:absolute; top:-60px; left:50%; z-index:@zindex-navbar-fixed+1; background:@themeHeader_bg;
+  color:@themeHeader_textColour; font-weight:bold; pointer-events:none;
+  text-align:center; text-decoration:underline; text-transform:uppercase;
+  .materialShadow(3); .opacity(0); .translate(-50%,0); .transition(none);
+
+  &:focus {
+    top:0; pointer-events:auto; color:@themeHeader_textColour; .opacity(1);
+  }
+}
+
+/* Mobile Scroll To Top */
+.scrollToTop {
+  display:none;
+
+  @media @deviceMobile {
+    width:30px; height:40px; line-height:40px; display:block; position:fixed; right:0; bottom:-40px; z-index:1060;
+    background:fade(@themeColour_BGContent, 70%); border: solid #DDD; border-width:1px 0 0 1px;
+    color:@brand-primary; font-size:2em; text-align:center;
+    body.header-affix & { bottom:0px; .transition-delay(1s); }
+  }
+}
+/* ===================================================================================== */
+
+/* LOGIN PAGE ========================================================================== */
+#wrapper.login  > .main-container {
+  &:before { display:none; }
+  > .main-panel {
+    width:auto; min-height:~"calc(100vh - @{mdMinHeight})"; padding:0; float:none; background-color:@themeLogin_BGSolidColour;
+
+    & when not (@themeLogin_BGImage_sm = ~"") {
+      background-repeat:no-repeat; background-position:center; background-size:cover;
+      background-image:url(@themeLogin_BGImage_sm); background-attachment:fixed;
+      @media @deviceTabletDesktop { background-image:url(@themeLogin_BGImage_md); }
+      @media @deviceDesktopLg { background-image:url(@themeLogin_BGImage_lg); }
+    }
+
+    .container { &, & > .row { min-height:inherit; } }
+
+    @media @deviceMobileTablet {
+      &:before {
+        width:100%; height:auto; display:block; position:absolute; top:300px; bottom:0;
+        background:fade(@themeLogin_BGColour,87.5%); content:'';
+      }
+
+      .container {
+        position:relative; z-index:1;
+        &, & > .row { width:auto; }
+      }
+    }
+
+
+    /* Login Main Content */
+    .login-content {
+      min-height:inherit;
+      > div { min-height:inherit; background:@themeLogin_contentBG; .materialShadow(4); }
+
+      &-header {
+        padding:35px 20px 15px; background:@themeLogin_titleBG; .transition(@baseTransition);
+
+        > h1, > .h1 { margin:0; color:@themeLogin_title; }
+        > hr { border-top-color:darken(@themeLogin_BGColour,17.5%); }
+
+        &.login-search {
+          background:@themeLogin_searchHeaderBG; color:@themeLogin_textColour;
+        }
+      }
+
+      &-body {
+        padding:20px;
+
+        .well {
+          margin-bottom:15px; background-color:@themeLogin_newsItemBG; color:@themeLogin_newsItemText;
+          html &:last-child { margin-bottom:0; }
+
+          .media {
+            > .pull-left {
+              width:15%; max-width:90px; min-height:0.1px; padding:0; margin-right:15px;
+              background-color:@themeLogin_newsItemImageBG;
+              #gradient .directional(@themeLogin_newsItemImageBG, lighten(@themeLogin_newsItemImageBG,40%), 135deg);
+            }
+
+            > .media-body {
+              > .media-heading {
+                color:@themeLogin_newsItemTitle;
+                & > a { color:inherit; }
+                & > a:hover { color:@themeLogin_newsItemLink; }
+              }
+
+              > div {
+                a {
+                  & { border-bottom:1px dotted @themeLogin_newsItemLink; color:@themeLogin_newsItemLink; text-decoration:none; }
+                  &:hover, &:focus { border-bottom:1px solid fade(@themeLogin_newsItemLink,85%); color:fade(@themeLogin_newsItemLink,85%); }
+                }
+              }
+            }
+          }
+        }
+
+        &.login-search {
+          .contentLoad { color:@themeLogin_accentColour; }
+        }
+      }
+
+      @media @deviceMobileTablet {
+        /*width:auto;*/ min-height:initial; padding:0;
+        > div { background:none; .box-shadow(none); }
+
+        &-header {
+          padding-top:0;
+          &.login-search { background:none; /*text-shadow:0 1px 0px darken(@themeLogin_textColour,50%);*/ }
+        }
+
+        &-body {
+          padding:15px;
+          .well { margin-bottom:10px; }
+        }
+      }
+
+      @media @deviceTablet {
+        &-body {
+          .well .media > .pull-left { width:8%; }
+        }
+      }
+
+      @media @deviceDesktop {
+        &-body {
+          height:~"calc(100vh - @{mdMinHeight} - (@{font-size-h1} * @{headings-line-height} + 50px))";
+          overflow:auto; .customWebkitScrollbar(10px, darken(@themeLogin_textColour,30%));
+          &.login-search { height:~"calc(100vh - @{mdMinHeight} - (@{font-size-h1} * @{headings-line-height} + 125px))"; }
+        }
+      }
+
+      @media @deviceDesktopLg {
+        > div { margin-right:@grid-gutter-width; }
+        &-header { padding-left:30px; padding-right:30px; }
+        &-body {
+          padding:30px;
+          &.login-search { height:~"calc(100vh - @{mdMinHeight} - (@{font-size-h1} * @{headings-line-height} + 130px))"; }
+        }
+      }
+    }
+
+    /* Login Form */
+    .login-form {
+      margin-top:~"calc(@{font-size-h1} * @{headings-line-height} + 50px)"; .animation(slideBottom 1s 0.5s ease both);
+
+      > span {
+        margin-bottom:10px; display:block; color:@themeLogin_title_SmMd; font-size:3.5vw; font-weight:200; text-align:center;
+        text-shadow:0 1px 3px fade(@themeLogin_titleShadow_SmMd,50%),0 1px 4px fade(@themeLogin_titleShadow_SmMd,50%);
+      }
+
+      > div {
+        padding:15px; border-top:5px solid @themeLogin_panelTopBar; color:@themeLogin_panelText;
+        background:@themeLogin_panelBG; .materialShadow(5);
+
+        &.login-form-success { border-top-color:@brand-success; }
+        &.login-form-warning { border-top-color:@brand-warning; }
+
+        hr { border-top-color:darken(@themeLogin_panelBG,17.5%); }
+
+        .form-group {
+          > label { color:@themeLogin_panelLabels; }
+          > .input-group > .input-group-addon {
+            padding:@padding-base-vertical 9.5px;
+            @media @deviceDesktopXLg { padding:@padding-base-vertical 10.5px; }
+          }
+        }
+        .form-control:focus { border-color:@themeLogin_panelInputFocus; }
+        .has-error .form-control:focus { border-color:@themeColour_danger; }
+
+        a:not(.btn) {
+          color:@themeLogin_panelLinkColour;
+          &:hover { .opacity(0.85); }
+        }
+
+        /* Buttons */
+        .btn-default {
+          background-color:transparent; color:@themeLogin_panelBackBtn;
+          &:hover { border-color:@themeLogin_panelBackBtn; .opacity(1); }
+        }
+        .btn-primary {
+          background-color:@themeLogin_panelResetBtn; border-color:@themeLogin_panelResetBtn;
+          &:hover { .opacity(0.85); }
+        }
+        .btn-success {
+          background-color:@themeLogin_panelLoginBtn; border-color:@themeLogin_panelLoginBtn;
+          &:hover { .opacity(0.85); }
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+          > label { font-weight:bold; }
+          > input {
+            margin-right:10px;
+            &, ~ label:before, ~ label:after { font-size:13px; }
+          }
+
+          body:not(.accessibilityMode) & {
+            > label { color:@themeLogin_panelLabels; }
+            > input {
+              &:hover, &:focus {
+                ~ label:after { border-color:@themeLogin_panelToggleSwitch; }
+              }
+            }
+          }
+        }
+      }
+
+      h2, .h2 { color:@themeLogin_panelHeadings; font-size:1.35em; }
+      h3, .h3 { color:@themeLogin_panelHeadings; font-size:1.1em; }
+      //&-title { margin:0 0 10px; color:@brand-primary; font-size:1.35em; }
+
+      @media @deviceMobile { > span { font-size:6vw; } }
+      @media @deviceMobileTablet { margin:20px 0 30px; }
+    }
+  }
+}
+/* ===================================================================================== */
+
+/* HRWEBAUTH PAGE ====================================================================== */
+.hrwebauth-wrapper {
+  .main-panel {
+    padding:20px 0;
+
+    /* Responsive Structure */
+    > .container-fluid {
+      padding-left:20px; padding-right:20px;
+      @media @deviceDesktopLg { padding-left:25px; padding-right:25px; }
+      @media @deviceMobileTablet {  padding:0 @grid-gutter-width/2; }
+    }
+  }
+}
+/* ===================================================================================== */

@@ -1,0 +1,52 @@
+/* TIME AND ATTENDANCE - WEEKLY SUMMARY ================================================ */
+nga-weekly-summary { display:block; }
+
+.taTimesheet-summary {
+	margin-bottom:0;
+
+	/* SUM HEADING ------------------------------- */
+	.panel-heading {
+		padding-top:5px;
+		display:-webkit-box; display:-moz-box; display:-ms-flexbox; display:-webkit-flex; display:flex;
+		-webkit-flex-wrap:wrap; -ms-flex-wrap:wrap; flex-wrap:wrap;
+
+		> .panel-title { margin:10px 5px 0 0; display:block; -webkit-flex-grow:100; -ms-flex-grow:100; flex-grow:100; }
+		> .flexiRefresh { margin-top:10px; display:block; font-size:0.9em; -webkit-flex-grow:1; -ms-flex-grow:1; flex-grow:1; }
+	}
+	/* ------------------------------------------- */
+
+	/* SUM BODY ---------------------------------- */
+	.panel-body {
+		.flexInfo > span { display:block; font-size:80%; }
+
+		ul {
+			margin:-3px 0 0; padding:0; list-style:none;
+			> li {
+				display:flex; margin-top:3px; justify-content:space-between;
+				> span { padding-left:5px; display:block; white-space:nowrap; }
+			}
+
+			/* Main Summary Totals */
+			&.summaryTotals {
+				font-size:1.175em; font-weight:700;
+				@media @deviceDesktopXLg { font-size:1.075em; }
+			}
+
+			/* Other Analysis Totals */
+			&.analysisTotals {
+				color:@text-muted; font-size:0.95em;
+				> li.active { color:@text-color; font-weight:700; }
+
+				@media @deviceTabletDesktopMd {
+					margin-left:-10px; margin-right:-10px; .clearfix();
+					> li {
+						width:33.3333%; padding:0 10px; float:left;
+						&:nth-child(3n) + li { clear:both; }
+					}
+				}
+			}
+		}
+	}
+	/* ------------------------------------------- */
+}
+/* ===================================================================================== */

@@ -1,0 +1,74 @@
+/* MULTI-FACTOR AUTH =================================================================== */
+.mfa-modal {
+  /* MODAL OVERRIDES --------------------------- */
+  .modal-dialog {
+    @media @deviceTabletDesktop { width:500px; }
+    @media @deviceDesktopXLg { width:550px; }
+  }
+  .modal-body {
+    overflow:hidden;
+
+    /* All Child Blocks */
+    > div {
+      .opacity(0);
+      &:not(.ng-animate) { .animation(fadeIn 0.8s ease both); }
+      &.ng-enter { .animation-duration(0.4s); }
+      &.ng-leave { .animation-duration(0.2s); }
+    }
+  }
+  /* ------------------------------------------- */
+
+  /* MFA SPECIFIC ------------------------------ */
+  /* Wizard Progress */
+  .authProgress-steps {
+    overflow:hidden;
+
+    > i {
+      background-color:fade(@brand-success,50%); .transform-origin(0% 50%);
+      .transition(~"width 3s cubic-bezier(0.23, 1, 0.32, 1)");
+      .animation(~"progress 2s cubic-bezier(0.77, 0, 0.175, 1) both");
+
+      &:before {
+        width:20%; min-width:100px; height:100%; display:block; position:absolute; top:0; left:100%; content:'';
+        #gradient .horizontal(fade(@brand-success,50%), lighten(@btn-default-border,10%));
+      }
+    }
+
+    > div > .btn {
+      line-height:@roundSize-small; line-height:~"calc(@{roundSize-small} - 2px)"; font-size:1.5em; .square(@roundSize-small);
+      &-success { font-weight:700; }
+    }
+  }
+
+  /* QR Code Image */
+  .mfa-qrCodeImg {
+    max-height:300px; margin:0 auto; display:block; .transition(all 0.5s ease);
+    &.shrink { max-height:100px; }
+  }
+
+  /* Manual Entry Code Toggle */
+  .mfa-manualCode {
+    margin:0 -15px -10px; text-align:center;
+    > .btn { margin-bottom:15px; }
+
+    .well {
+      margin:0 15px 10px;
+      > p { margin-bottom:15px; }
+      > span { display:block; color:@themeColour_accent; font-size:1.3em; }
+    }
+  }
+
+  /* MFA Success */
+  .mfa-successful {
+    text-align:center;
+
+    > .fa {
+      margin-bottom:15px; color:@brand-success; font-size:8em;
+      .animation(zoomOut 1.2s 0.3s cubic-bezier(0.6, 0, 0.4, 1.8) both);
+
+      @media @deviceMobile { font-size:6em; }
+    }
+  }
+  /* ------------------------------------------- */
+}
+/* ===================================================================================== */

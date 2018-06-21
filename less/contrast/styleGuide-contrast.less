@@ -1,0 +1,23 @@
+/* STYLE GUIDE ========================================================================= */
+.support-container {
+  > .support-section {
+    @media @deviceTabletDesktop {
+
+      background: @highVis_BGContent;
+      //background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNlYWVhZWEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+      background: -moz-linear-gradient(left,  @highVis_BGContent 50%, @highVis_BGSite 50%);
+      background: -webkit-linear-gradient(left,  @highVis_BGContent 50%,@highVis_BGSite 50%);
+      background: linear-gradient(to right,  @highVis_BGContent 50%,@highVis_BGSite 50%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@{highVis_BGContent}', endColorstr='@{highVis_BGSite}',GradientType=1 );
+      //.cssgradients & { filter:none; }
+    }
+
+    .support-content {
+      background:@highVis_BGSite;
+      &Panel-body { .highVis_content(); }
+    }
+  }
+
+  .well-example { background-color:@highVis_BGSite; }
+}
+/* ===================================================================================== */
