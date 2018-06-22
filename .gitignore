@@ -1,6 +1,6 @@
 bower_components/
 node_modules/
-dist/
+/dist/
 package-lock.json
-fonts/
-css/
+/fonts/
+/css/
