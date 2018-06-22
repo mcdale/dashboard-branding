@@ -14,3 +14,5 @@ gulp.task('images:resize', function () {
         )
         .pipe(gulp.dest(config.dest));
 });
+
+gulp.task('images', ['images:resize']);

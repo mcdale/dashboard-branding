@@ -3127,7 +3127,7 @@ footer.navbar .navbar-nav > li > .dropdown-menu {
   color: #00FFFF;
 }
 .toast-close-button:focus {
-  outline: 2px dashed #258FC9;
+  outline: 2px dashed #954c97;
   outline-offset: 1px;
 }
 .toast.toast-info {

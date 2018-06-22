@@ -20,8 +20,6 @@
     "font-awesome": "fontawesome#4",
     "isteven-angular-multiselect": "4",
     "modernizr": "2",
-    "PACE": "pace#^1.0.2",
-    "lato-font-face": "^1.0.3",
-    "lato-webfont": "^1.1.2"
+    "PACE": "pace#^1.0.2"
   }
 }
