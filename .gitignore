@@ -1,7 +1,6 @@
 **/.**
-.tmp/
 !.gitignore
-
+/.tmp/
 bower_components/
 node_modules/
 /dist/
@@ -13,6 +12,5 @@ node_modules/
 /MyViewDashboardBranding/images/
 /MyViewDashboardBranding/customer/
 
-
-
 package-lock.json
+.tmp/
