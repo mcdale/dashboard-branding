@@ -5,6 +5,7 @@ var browserSync = require('browser-sync').create();
 gulp.task('serve', ['watch:less'], function(){
 
   browserSync.init({
+    browser: ["chrome", "firefox"],
     server: '.',
     index: 'styling.html',
   });
