@@ -4,6 +4,10 @@ module.exports = {
     images: {
         src: './assets/images/**',
         dest: './images',
+        settings: {
+          format: "png",
+          height: 96
+        }
     },
     svg: {
         src: './assets/**/*.svg',

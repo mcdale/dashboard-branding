@@ -141,7 +141,7 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
 }
 .support-container > header .navbar .navbar-nav > li.active > a {
-  background: #1d709e;
+  background: #743b75;
 }
 @media (min-width: 768px) {
   .support-container > header .navbar .container,
@@ -288,7 +288,7 @@ body:not(.accessibilityMode) .support-container > .support-section .support-left
   position: absolute;
   top: 0;
   left: 0;
-  background: #258FC9;
+  background: #954c97;
   content: '';
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
@@ -299,7 +299,7 @@ body:not(.accessibilityMode) .support-container > .support-section .support-left
 }
 .support-container > .support-section .support-leftnav .nav > li.active > a {
   background: #EEE;
-  color: #258FC9;
+  color: #954c97;
 }
 .support-container > .support-section .support-leftnav .nav > li.active > a:before {
   width: 5px;
@@ -321,7 +321,7 @@ body:not(.accessibilityMode) .support-container > .support-section .support-left
   font-size: 90%;
 }
 .support-container > .support-section .support-leftnav > .nav > li > .nav > li > a:before {
-  background: #44a7dd;
+  background: #af65b1;
 }
 .support-container > .support-section .support-leftnav > .nav > li.active,
 .no-touch .support-container > .support-section .support-leftnav > .nav > li:hover {
@@ -409,10 +409,10 @@ body:not(.accessibilityMode) .support-container > .support-section .support-left
   margin: 0;
   text-align: center;
   color: #FFF;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#258FC9), to(#1d709e));
-  background-image: linear-gradient(to bottom, #258FC9 0%, #1d709e 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#954c97), to(#743b75));
+  background-image: linear-gradient(to bottom, #954c97 0%, #743b75 100%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff258fc9', endColorstr='#ff1d709e', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff954c97', endColorstr='#ff743b75', GradientType=0);
 }
 .support-container > .jumbotron span {
   display: inline-block;
@@ -606,7 +606,7 @@ body:not(.accessibilityMode) .support-container > .support-section .support-left
   content: '14px';
 }
 .support-container .styling-HeadingColour:before {
-  content: '#258FC9';
+  content: '#954c97';
 }
 .support-container .well-example .scrollShadows:before {
   background-image: -webkit-gradient(linear, left top, right top, from(#eeeeee), to(rgba(238, 238, 238, 0)));
@@ -623,7 +623,7 @@ body:not(.accessibilityMode) .support-container > .support-section .support-left
 .support-container .styling-colourBox {
   margin-bottom: 20px;
   position: relative;
-  background: #258FC9;
+  background: #954c97;
   font-size: 90%;
   font-weight: bold;
   line-height: 1;
@@ -683,21 +683,21 @@ body:not(.accessibilityMode) .support-container > .support-section .support-left
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 .support-container .styling-colourBox-accent {
-  background-color: #258FC9;
+  background-color: #954c97;
   color: #000;
   text-shadow: 0 1px 2px #FFF;
   color: #FFF;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 .support-container .styling-colourBox-accentLight {
-  background-color: #44a7dd;
+  background-color: #af65b1;
   color: #000;
   text-shadow: 0 1px 2px #FFF;
   color: #FFF;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 .support-container .styling-colourBox-accentDark {
-  background-color: #1d709e;
+  background-color: #743b75;
   color: #000;
   text-shadow: 0 1px 2px #FFF;
   color: #FFF;
